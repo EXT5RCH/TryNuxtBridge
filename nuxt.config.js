@@ -38,5 +38,11 @@ export default defineNuxtConfig({
   modules: [],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    postcss: {
+      plugins: {
+        "postcss-nested": {},
+      },
+    },
+  },
 });
