@@ -26,7 +26,7 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 interface Emits {
-  (e: "input", value: string): void;
+  (e: "update:modelValue", newValue: string): void;
 }
 
 const emit = defineEmits<Emits>();
@@ -35,8 +35,8 @@ const vmValue = computed({
   get: () => {
     return props.modelValue;
   },
-  set: (value: string) => {
-    emit("input", value);
+  set: (newValue: string) => {
+    emit("update:modelValue", newValue);
   },
 });
 </script>
