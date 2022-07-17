@@ -115,7 +115,7 @@ const update = (value: Partial<NewsSearchType>) =>
 
   &__content {
     @apply flex flex-col;
-    @apply p-5;
+    @apply px-5 py-3;
     @apply gap-2;
 
     &-period {
