@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { VButton, VTextbox } from "@/components/uiParts";
 import { useLogin } from "./helper";
 const { name, password, handleClick } = useLogin();
 </script>
