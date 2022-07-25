@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { VAccordion, VButton, VTextbox } from "~/components/uiParts";
 import { computed } from "@vue/reactivity";
 import { NewsSearchType } from "@/components/pages/news/type";
 
