@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { NewsItemType } from "@/components/pages/news/type";
+import { NewsItemType } from "~/types/news";
 interface Props {
   item: NewsItemType;
   disabled: boolean;
