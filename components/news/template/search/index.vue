@@ -3,10 +3,10 @@ import { computed } from "@vue/reactivity";
 import { NewsSearchType } from "~/types/news";
 
 interface Props {
-  modelValue?: NewsSearchType;
+  value?: NewsSearchType;
 }
 const props = withDefaults(defineProps<Props>(), {
-  modelValue: () => ({
+  value: () => ({
     keyword: "",
     poster: "",
     searchStartAt: "",
@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 interface Emits {
   (e: "click"): void;
-  (e: "update:modelValue", value: NewsSearchType): void;
+  (e: "input", value: NewsSearchType): void;
 }
 const emit = defineEmits<Emits>();
 
@@ -26,7 +26,7 @@ const handleClick = () => {
 
 const vmKeyword = computed({
   get: () => {
-    return props.modelValue.keyword;
+    return props.value.keyword;
   },
   set: (keyword: string) => {
     update({ keyword });
@@ -34,7 +34,7 @@ const vmKeyword = computed({
 });
 const vmPoster = computed({
   get: () => {
-    return props.modelValue.poster;
+    return props.value.poster;
   },
   set: (poster: string) => {
     update({ poster });
@@ -42,7 +42,7 @@ const vmPoster = computed({
 });
 const vmSearchStartAt = computed({
   get: () => {
-    return props.modelValue.searchStartAt;
+    return props.value.searchStartAt;
   },
   set: (searchStartAt: string) => {
     update({ searchStartAt });
@@ -50,14 +50,14 @@ const vmSearchStartAt = computed({
 });
 const vmSearchEndAt = computed({
   get: () => {
-    return props.modelValue.searchEndAt;
+    return props.value.searchEndAt;
   },
   set: (searchEndAt: string) => {
     update({ searchEndAt });
   },
 });
 const update = (value: Partial<NewsSearchType>) =>
-  emit("update:modelValue", { ...props.modelValue, ...value });
+  emit("input", { ...props.value, ...value });
 </script>
 
 <template>

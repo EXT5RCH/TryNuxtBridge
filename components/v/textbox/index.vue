@@ -2,7 +2,7 @@
 import { computed } from "@vue/reactivity";
 
 interface Props {
-  modelValue?: string;
+  value?: string;
   label: string;
   id: string;
   type?:
@@ -18,7 +18,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  modelValue: "",
+  value: "",
   label: "",
   id: "",
   type: "text",
@@ -26,17 +26,17 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 interface Emits {
-  (e: "update:modelValue", newValue: string): void;
+  (e: "input", newValue: string): void;
 }
 
 const emit = defineEmits<Emits>();
 
 const vmValue = computed({
   get: () => {
-    return props.modelValue;
+    return props.value;
   },
   set: (newValue: string) => {
-    emit("update:modelValue", newValue);
+    emit("input", newValue);
   },
 });
 </script>
