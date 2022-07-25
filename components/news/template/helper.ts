@@ -1,4 +1,4 @@
-import { NewsSearchType, NewsListType } from "@/components/pages/news/type";
+import { NewsSearchType, NewsListType } from "~/types/news";
 
 export function useNews() {
   const stateSearch: NewsSearchType = ref({

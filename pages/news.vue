@@ -5,7 +5,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import NewsTemplate from "@/components/pages/news/NewsTemplate/index.vue";
+import NewsTemplate from "@/components/news/template/index.vue";
 </script>
 
 <template>

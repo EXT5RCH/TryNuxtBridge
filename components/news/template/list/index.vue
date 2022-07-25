@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import NewsListItem from "./NewsListItem/index.vue";
-import { NewsItemType } from "@/components/pages/news/type";
+import { NewsItemType } from "~/types/news";
 
 interface Props {
   list: NewsItemType[];
@@ -19,9 +18,13 @@ const header = {
 
 <template>
   <div class="news-list">
-    <news-list-item :item="header" :disabled="true" class="news-list__header" />
+    <news-template-list-item
+      :item="header"
+      :disabled="true"
+      class="news-list__header"
+    />
     <div class="news-list__body">
-      <news-list-item
+      <news-template-list-item
         v-for="v in list"
         :key="v.id"
         :item="v"
