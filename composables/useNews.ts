@@ -15,35 +15,33 @@ export function useNews() {
     newsList: [],
   });
 
-  const handleClickSearch = () => {
-    // TODO 検索処理を実施
-    stateList.value.count = {
-      count: 3,
-      total: 3,
-    };
-    stateList.value.newsList = [
-      {
-        id: "1",
-        title: "テスト１",
-        overview: "テスト記事１です。",
-        createdAt: "2022-12-11",
-        updatedAt: "2022-12-11",
+  const fetchNews = async () => {
+    await fetchNewsList();
+    await fetchNewsCount();
+  };
+
+  const fetchNewsList = async () => {
+    const res = await fetch("/news", {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
       },
-      {
-        id: "2",
-        title: "テスト２",
-        overview: "テスト記事２です。",
-        createdAt: "2022-12-11",
-        updatedAt: "2022-12-11",
+    });
+    stateList.value.newsList = await res.json();
+  };
+
+  const fetchNewsCount = async () => {
+    const res = await fetch("/count/news", {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
       },
-      {
-        id: "3",
-        title: "テスト３",
-        overview: "テスト記事３です。",
-        createdAt: "2022-12-11",
-        updatedAt: "2022-12-11",
-      },
-    ];
+    });
+    stateList.value.count = await res.json();
+  };
+
+  const handleClickSearch = async () => {
+    await fetchNews();
   };
   return {
     stateSearch,
