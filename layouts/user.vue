@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <div class="header">ヘッダー</div>
+    <v-header />
     <div class="body">
       <Nuxt />
     </div>
@@ -11,23 +11,17 @@
 <style lang="postcss" scoped>
 .layout {
   @apply h-full w-full;
-  .header {
-    @apply h-6;
-    @apply bg-white;
-    @apply flex;
-    @apply justify-center items-center;
-  }
 
   .body {
     @apply flex;
-    height: calc(100% - 3rem);
+    height: calc(100% - 5rem);
   }
 
   .footer {
     @apply bottom-0;
     @apply flex;
     @apply justify-center items-center;
-    @apply h-6;
+    @apply h-10;
     @apply w-full;
     @apply bg-gray-900;
     @apply text-gray-200;
