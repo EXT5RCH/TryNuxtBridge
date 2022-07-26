@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useNews } from "./helper";
 const { stateSearch, stateList, handleClickSearch } = useNews();
 </script>
 
