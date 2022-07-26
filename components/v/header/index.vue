@@ -9,6 +9,9 @@
       <div class="menu">
         <nuxt-link to="/news">記事</nuxt-link>
       </div>
+      <div class="menu">
+        <nuxt-link to="/category">カテゴリ</nuxt-link>
+      </div>
     </div>
   </div>
 </template>
