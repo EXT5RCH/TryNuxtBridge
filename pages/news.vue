@@ -4,10 +4,6 @@ export default {
 };
 </script>
 
-<script setup lang="ts">
-import NewsTemplate from "@/components/news/template/index.vue";
-</script>
-
 <template>
   <news-template />
 </template>
