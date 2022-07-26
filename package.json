@@ -20,7 +20,11 @@
     "@nuxt/types": "^2.15.8",
     "@nuxtjs/tailwindcss": "^4.2.1",
     "@vue/runtime-dom": "^3.2.37",
+    "msw": "^0.44.2",
     "postcss": "^8.4.4",
     "stylelint-config-recommended": "^8.0.0"
+  },
+  "msw": {
+    "workerDirectory": "static"
   }
 }
