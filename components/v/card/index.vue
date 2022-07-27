@@ -13,11 +13,11 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <div class="v-card">
+    <div class="v-card__content">
+      <img v-if="imageUrl" :src="imageUrl" :alt="title" />
+    </div>
     <div class="v-card__title">
       <span v-text="title" />
-    </div>
-    <div v-if="imageUrl" class="v-card__content">
-      <img :src="imageUrl" :alt="title" />
     </div>
   </div>
 </template>
@@ -29,8 +29,7 @@ withDefaults(defineProps<Props>(), {
   @apply rounded;
   @apply flex-shrink;
   @apply bg-white;
-  @apply h-60;
-  min-width: 16rem;
+  @apply h-64 w-96;
 
   &:hover {
     @apply bg-gradient-to-r;
@@ -38,12 +37,18 @@ withDefaults(defineProps<Props>(), {
     @apply cursor-pointer;
   }
 
-  &__title {
-    @apply px-2 py-1;
+  &__content {
+    @apply mt-2 mx-2;
+    height: 12.5rem;
+    @apply bg-gray-500;
   }
 
-  &__content {
-    @apply p-1;
+  &__title {
+    @apply p-2;
+    @apply flex;
+    @apply justify-center items-center;
+    @apply truncate;
+    @apply h-12;
   }
 }
 </style>
