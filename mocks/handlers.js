@@ -1,6 +1,17 @@
 import { rest } from "msw";
 
 export const handlers = [
+  rest.get("/categories", (_req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json(
+        [...Array(100).keys()].map((v) => ({
+          id: v.toString(),
+          title: `カテゴリ${v + 1}`,
+        }))
+      )
+    );
+  }),
   rest.get("/news", (_req, res, ctx) => {
     return res(
       ctx.status(200),

@@ -1,14 +1,11 @@
 <script setup lang="ts">
-const categoryState = ref([]);
-categoryState.value = [...Array(100).keys()].map((v) => ({
-  id: v.toString(),
-  title: `カテゴリ${v + 1}`,
-}));
+const { stateCategories, fetchCategories } = useCategories();
+fetchCategories();
 </script>
 
 <template>
   <div class="category">
-    <v-card v-for="i in categoryState" :key="i.id" v-bind="i" />
+    <v-card v-for="i in stateCategories" :key="i.id" v-bind="i" />
   </div>
 </template>
 
