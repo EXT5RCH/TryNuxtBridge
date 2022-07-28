@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { stateLogin, handleClick } = useLogin();
+const { loginState, handleClick } = useLogin();
 </script>
 
 <template>
@@ -10,14 +10,14 @@ const { stateLogin, handleClick } = useLogin();
         class="login__content-username"
         id="username"
         label="ユーザー名"
-        v-model="stateLogin.name"
+        v-model="loginState.name"
       />
       <v-textbox
         class="login__content-password"
         id="password"
         label="パスワード"
         type="password"
-        v-model="stateLogin.password"
+        v-model="loginState.password"
       />
       <v-button
         id="btn-login"

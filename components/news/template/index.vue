@@ -1,12 +1,12 @@
 <script setup lang="ts">
-const { stateSearch, stateList, handleClickSearch } = useNews();
+const { searchState, listState, handleClickSearch } = useNews();
 </script>
 
 <template>
   <div class="news">
-    <news-template-search v-model="stateSearch" @click="handleClickSearch" />
-    <news-template-count :count="stateList.count" />
-    <news-template-list :list="stateList.newsList" />
+    <news-template-search v-model="searchState" @click="handleClickSearch" />
+    <news-template-count :count="listState.count" />
+    <news-template-list :list="listState.newsList" />
   </div>
 </template>
 

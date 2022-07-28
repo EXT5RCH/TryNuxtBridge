@@ -1,11 +1,11 @@
 <script setup lang="ts">
-const { stateCategories, fetchCategories } = useCategories();
+const { categoriesState, fetchCategories } = useCategories();
 fetchCategories();
 </script>
 
 <template>
   <div class="category">
-    <v-card v-for="i in stateCategories" :key="i.id" v-bind="i" />
+    <v-card v-for="i in categoriesState" :key="i.id" v-bind="i" />
   </div>
 </template>
 

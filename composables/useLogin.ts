@@ -1,6 +1,6 @@
 export function useLogin() {
   const router = useRouter();
-  const stateLogin = ref({
+  const loginState = ref({
     name: "",
     password: "",
   });
@@ -10,9 +10,9 @@ export function useLogin() {
       headers: {
         "content-type": "application/json",
       },
-      body: stateLogin.value,
+      body: loginState.value,
     });
     router.push("/news");
   };
-  return { stateLogin, handleClick };
+  return { loginState, handleClick };
 }

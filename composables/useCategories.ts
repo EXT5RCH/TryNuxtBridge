@@ -1,7 +1,7 @@
 import { CategoryType } from "~/types/categories";
 
 export function useCategories() {
-  const stateCategories = ref<CategoryType[]>([]);
+  const categoriesState = ref<CategoryType[]>([]);
 
   const fetchCategories = async () => {
     const res = await fetch("/categories", {
@@ -10,8 +10,8 @@ export function useCategories() {
         "content-type": "application/json",
       },
     });
-    stateCategories.value = await res.json();
+    categoriesState.value = await res.json();
   };
 
-  return { stateCategories, fetchCategories };
+  return { categoriesState, fetchCategories };
 }
