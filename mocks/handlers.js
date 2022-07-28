@@ -1,6 +1,15 @@
 import { rest } from "msw";
 
 export const handlers = [
+  rest.post("/login", (_req, res, ctx) => {
+    return res(ctx.cookie("auth-token", "token"));
+  }),
+  rest.post("/session", (_req, res, ctx) => {
+    const { authToken } = req.cookies;
+    if (!authToken) {
+      return res(ctx.status(403), ctx.json(ThrowError(403)));
+    }
+  }),
   rest.get("/categories", (_req, res, ctx) => {
     return res(
       ctx.status(200),
@@ -50,3 +59,12 @@ export const handlers = [
     );
   }),
 ];
+
+const ThrowError = (statusCode) => {
+  switch (statusCode) {
+    case 401:
+      return "Failed to authenticate.";
+    default:
+      return "";
+  }
+};
