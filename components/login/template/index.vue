@@ -1,10 +1,10 @@
 <script setup lang="ts">
-const { loginState, handleClick } = useLogin();
+const { loginState, handleSubmit } = useLogin();
 </script>
 
 <template>
   <div class="login">
-    <div class="login__content">
+    <form class="login__content" @submit.prevent="handleSubmit">
       <div class="login__content-title">ログイン</div>
       <v-textbox
         class="login__content-username"
@@ -19,13 +19,8 @@ const { loginState, handleClick } = useLogin();
         type="password"
         v-model="loginState.password"
       />
-      <v-button
-        id="btn-login"
-        class="login__content-button"
-        text="ログイン"
-        @click="handleClick"
-      />
-    </div>
+      <v-button id="btn-login" class="login__content-button" text="ログイン" />
+    </form>
   </div>
 </template>
 
