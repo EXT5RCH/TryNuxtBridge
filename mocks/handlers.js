@@ -1,18 +1,19 @@
 import { rest } from "msw";
 
 export const handlers = [
-  rest.post("/login", (_req, res, ctx) => {
-    return res(ctx.cookie("auth-token", "token"));
+  rest.post("/login", async (_req, res, ctx) => {
+    return Response.success(res, ctx, ctx.cookie("auth-token", "token"));
   }),
-  rest.post("/session", (_req, res, ctx) => {
+  rest.post("/session", (req, res, ctx) => {
     const { authToken } = req.cookies;
     if (!authToken) {
-      return res(ctx.status(403), ctx.json(ThrowError(403)));
+      return Response.unauthorized(res, ctx);
     }
   }),
   rest.get("/categories", (_req, res, ctx) => {
-    return res(
-      ctx.status(200),
+    return Response.success(
+      res,
+      ctx,
       ctx.json(
         [...Array(100).keys()].map((v) => ({
           id: v.toString(),
@@ -22,8 +23,9 @@ export const handlers = [
     );
   }),
   rest.get("/news", (_req, res, ctx) => {
-    return res(
-      ctx.status(200),
+    return Response.success(
+      res,
+      ctx,
       ctx.json([
         {
           id: "1",
@@ -50,8 +52,9 @@ export const handlers = [
     );
   }),
   rest.get("/count/news", (_req, res, ctx) => {
-    return res(
-      ctx.status(200),
+    return Response.success(
+      res,
+      ctx,
       ctx.json({
         count: 3,
         total: 3,
@@ -60,11 +63,16 @@ export const handlers = [
   }),
 ];
 
-const ThrowError = (statusCode) => {
-  switch (statusCode) {
-    case 401:
-      return "Failed to authenticate.";
-    default:
-      return "";
+class Response {
+  static success = (res, ctx, ...options) => {
+    return res(ctx.status(200), ...options);
+  };
+
+  static unauthorized(res, ctx) {
+    return res(ctx.status(401), ctx.json("Unauthorized."));
   }
-};
+
+  static notFound(res, ctx, name) {
+    return res(ctx.status(404), ctx.json(`${name} not found.`));
+  }
+}
