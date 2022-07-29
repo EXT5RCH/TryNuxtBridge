@@ -6,12 +6,12 @@
       <div class="logo">
         <div class="logo__content">ロゴを設定</div>
       </div>
-      <div class="menu">
-        <nuxt-link to="/news">記事</nuxt-link>
-      </div>
-      <div class="menu">
-        <nuxt-link to="/category">カテゴリ</nuxt-link>
-      </div>
+      <nuxt-link to="/news" class="menu">
+        <span>記事</span>
+      </nuxt-link>
+      <nuxt-link to="/category" class="menu">
+        <span>カテゴリ</span>
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -47,6 +47,7 @@
       &:hover {
         @apply rounded;
         @apply bg-gray-100;
+        @apply cursor-pointer;
       }
     }
   }
