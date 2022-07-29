@@ -77,10 +77,10 @@ class Response {
   };
 
   static unauthorized(res, ctx) {
-    return res(ctx.status(401), ctx.json("Unauthorized."));
+    return res(ctx.status(401), ctx.json({ message: "Unauthorized." }));
   }
 
   static notFound(res, ctx, name) {
-    return res(ctx.status(404), ctx.json(`${name} not found.`));
+    return res(ctx.status(404), ctx.json({ message: `${name} not found.` }));
   }
 }

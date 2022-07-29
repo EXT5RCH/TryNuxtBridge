@@ -5,14 +5,19 @@ export function useLogin() {
     password: "",
   });
   const handleSubmit = async () => {
-    await fetch("/login", {
+    const res = await fetch("/login", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(loginState.value),
     });
-    router.push("/news");
+    if (res.ok) {
+      router.push("/news");
+    } else {
+      const { message } = await res.json();
+      alert(message);
+    }
   };
   return { loginState, handleSubmit };
 }
