@@ -10,7 +10,7 @@ export function useLogin() {
       headers: {
         "content-type": "application/json",
       },
-      body: loginState.value,
+      body: JSON.stringify(loginState.value),
     });
     router.push("/news");
   };

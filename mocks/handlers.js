@@ -1,8 +1,16 @@
 import { rest } from "msw";
 
+const loginUserName = "admin";
+const loginPassword = "admin";
+
 export const handlers = [
-  rest.post("/login", async (_req, res, ctx) => {
-    return Response.success(res, ctx, ctx.cookie("auth-token", "token"));
+  rest.post("/login", async (req, res, ctx) => {
+    const { name, password } = await req.json();
+    if (name === loginUserName && password === loginPassword) {
+      return Response.success(res, ctx, ctx.cookie("auth-token", "token"));
+    } else {
+      return Response.unauthorized(res, ctx);
+    }
   }),
   rest.post("/session", (req, res, ctx) => {
     const { authToken } = req.cookies;
