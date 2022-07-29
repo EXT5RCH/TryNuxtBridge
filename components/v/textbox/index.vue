@@ -15,6 +15,7 @@ interface Props {
     | "text"
     | "url";
   disabled?: boolean;
+  example?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -51,12 +52,17 @@ const vmValue = computed({
       :disabled="disabled"
       class="v-textbox__input"
     />
+    <div v-if="!!example" class="v-textbox__example">
+      <div class="v-textbox__example-triangle"></div>
+      <div class="v-textbox__example-text">
+        <span v-text="`例）${props.example}`" />
+      </div>
+    </div>
   </label>
 </template>
 
 <style lang="postcss" scoped>
 .v-textbox {
-  @apply gap-2;
   @apply flex flex-col;
 
   &__input {
@@ -66,11 +72,37 @@ const vmValue = computed({
     &:enabled:focus {
       @apply outline-none;
       @apply border-blue-400;
+
+      & + .v-textbox__example {
+        @apply block;
+      }
     }
 
     &:disabled {
       @apply bg-gray-50;
       @apply text-gray-500;
+    }
+  }
+
+  &__example {
+    @apply hidden;
+
+    &-triangle {
+      @apply w-0 h-0;
+      @apply border-gray-700;
+      margin-left: 8px;
+      border-right: 4px solid transparent;
+      border-bottom: 8px solid;
+      border-left: 4px solid transparent;
+    }
+
+    &-text {
+      @apply bg-gray-700;
+      @apply text-gray-100;
+      @apply p-1;
+      @apply text-xs;
+      @apply rounded;
+      @apply truncate;
     }
   }
 }
