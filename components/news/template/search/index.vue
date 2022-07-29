@@ -117,22 +117,24 @@ const update = (value: Partial<NewsSearchType>) =>
     @apply px-5 py-3;
     @apply gap-2;
 
-    &-period {
-      @apply flex;
-      @apply gap-2;
-
-      &-start-at,
-      &-end-at {
-        @apply w-full;
-      }
-    }
-
     &-input {
       @apply flex;
+      @apply flex-col sm:flex-row;
       @apply gap-2;
 
       &-keyword,
       &-poster {
+        @apply w-full;
+      }
+    }
+
+    &-period {
+      @apply flex;
+      @apply flex-col sm:flex-row;
+      @apply gap-2;
+
+      &-start-at,
+      &-end-at {
         @apply w-full;
       }
     }
