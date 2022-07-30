@@ -25,7 +25,8 @@ export const handlers = [
       ctx.json(
         [...Array(100).keys()].map(v => ({
           id: (v + 1).toString(),
-          title: `カテゴリ${v + 1}`
+          title: `カテゴリ${v + 1}`,
+          imageUrl: `https://source.unsplash.com/random/${v + 1}`
         }))
       )
     )

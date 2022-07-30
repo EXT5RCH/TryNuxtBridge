@@ -41,6 +41,11 @@ withDefaults(defineProps<Props>(), {
     @apply mt-2 mx-2;
     height: 12.5rem;
     @apply bg-gray-500;
+
+    img {
+      @apply h-full w-full;
+      @apply object-cover;
+    }
   }
 
   &__title {
