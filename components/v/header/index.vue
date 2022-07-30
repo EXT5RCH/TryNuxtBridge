@@ -12,6 +12,9 @@
       <nuxt-link to="/category" class="menu">
         <span>カテゴリ</span>
       </nuxt-link>
+      <nuxt-link to="/writing" class="menu">
+        <span>執筆</span>
+      </nuxt-link>
     </div>
     <div class="header__right">
       <v-profile-icon />

@@ -24,10 +24,66 @@ export const handlers = [
       ctx,
       ctx.json(
         [...Array(100).keys()].map((v) => ({
-          id: v.toString(),
+          id: (v + 1).toString(),
           title: `カテゴリ${v + 1}`,
         }))
       )
+    );
+  }),
+  rest.get("/categories_news", (_req, res, ctx) => {
+    return Response.success(
+      res,
+      ctx,
+      ctx.json([
+        {
+          id: "1",
+          label: "カテゴリ１",
+          type: "array",
+          items: [
+            {
+              id: "1-1",
+              label: "記事１",
+              type: "string",
+            },
+            {
+              id: "1-2",
+              label: "記事２",
+              type: "string",
+            },
+          ],
+        },
+        {
+          id: "2",
+          label: "カテゴリ２",
+          type: "array",
+          items: [
+            {
+              id: "game",
+              label: "ゲーム",
+              type: "array",
+              items: [
+                {
+                  id: "2-game-4",
+                  label: "記事３",
+                  type: "string",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          id: "3",
+          label: "カテゴリ３",
+          type: "array",
+          items: [
+            {
+              id: "3-1",
+              label: "記事３",
+              type: "string",
+            },
+          ],
+        },
+      ])
     );
   }),
   rest.get("/news", (_req, res, ctx) => {
