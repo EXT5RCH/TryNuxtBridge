@@ -14,7 +14,7 @@
 
   .body {
     @apply flex;
-    height: calc(100% - 5rem);
+    height: calc(100% - 5.5rem);
   }
 
   .footer {

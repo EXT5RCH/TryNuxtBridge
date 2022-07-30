@@ -13,12 +13,15 @@
         <span>カテゴリ</span>
       </nuxt-link>
     </div>
+    <div class="header__right">
+      <v-profile-icon />
+    </div>
   </div>
 </template>
 
 <style lang="postcss" scoped>
 .header {
-  @apply h-10;
+  @apply h-12;
   @apply bg-white;
   @apply flex;
   @apply justify-between items-center;
@@ -26,9 +29,10 @@
   &__left {
     @apply flex;
     @apply items-center;
+    @apply h-full;
 
     .logo {
-      @apply p-2;
+      @apply px-2 py-1;
       @apply w-32;
       @apply justify-center items-center;
 
@@ -50,6 +54,10 @@
         @apply cursor-pointer;
       }
     }
+  }
+
+  &__right {
+    @apply h-full;
   }
 }
 </style>
