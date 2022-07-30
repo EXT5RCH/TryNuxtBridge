@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.19.3",
+    "material-icons": "^1.11.8",
     "nuxt-edge": "latest",
     "vue": "^2.6.14",
     "vue-server-renderer": "^2.6.14",
