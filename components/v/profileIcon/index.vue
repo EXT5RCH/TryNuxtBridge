@@ -3,9 +3,9 @@ interface Props {
   text?: string;
 }
 const props = withDefaults(defineProps<Props>(), {
-  text: "あ",
-});
-const vbText = props.text.length > 0 ? props.text.substring(0, 1) : "あ";
+  text: 'あ'
+})
+const vbText = props.text.length > 0 ? props.text.substring(0, 1) : 'あ'
 </script>
 
 <template>

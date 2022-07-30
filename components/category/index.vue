@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const { categoriesState, fetchCategories } = useCategories();
-fetchCategories();
+const { categoriesState, fetchCategories } = useCategories()
+fetchCategories()
 </script>
 
 <template>

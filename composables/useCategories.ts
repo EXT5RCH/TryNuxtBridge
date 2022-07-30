@@ -1,17 +1,17 @@
-import { CategoryType } from "~/types/categories";
+import { CategoryType } from '~/types/categories'
 
-export function useCategories() {
-  const categoriesState = ref<CategoryType[]>([]);
+export function useCategories () {
+  const categoriesState = ref<CategoryType[]>([])
 
   const fetchCategories = async () => {
-    const res = await fetch("/categories", {
-      method: "GET",
+    const res = await fetch('/categories', {
+      method: 'GET',
       headers: {
-        "content-type": "application/json",
-      },
-    });
-    categoriesState.value = await res.json();
-  };
+        'content-type': 'application/json'
+      }
+    })
+    categoriesState.value = await res.json()
+  }
 
-  return { categoriesState, fetchCategories };
+  return { categoriesState, fetchCategories }
 }

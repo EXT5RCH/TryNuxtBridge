@@ -1,23 +1,23 @@
-export function useLogin() {
-  const router = useRouter();
+export function useLogin () {
+  const router = useRouter()
   const loginState = ref({
-    name: "",
-    password: "",
-  });
+    name: '',
+    password: ''
+  })
   const handleSubmit = async () => {
-    const res = await fetch("/login", {
-      method: "POST",
+    const res = await fetch('/login', {
+      method: 'POST',
       headers: {
-        "content-type": "application/json",
+        'content-type': 'application/json'
       },
-      body: JSON.stringify(loginState.value),
-    });
+      body: JSON.stringify(loginState.value)
+    })
     if (res.ok) {
-      router.push("/news");
+      router.push('/news')
     } else {
-      const { message } = await res.json();
-      alert(message);
+      const { message } = await res.json()
+      alert(message)
     }
-  };
-  return { loginState, handleSubmit };
+  }
+  return { loginState, handleSubmit }
 }

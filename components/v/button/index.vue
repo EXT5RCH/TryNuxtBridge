@@ -6,21 +6,21 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  id: "",
-  text: "",
-  disabled: false,
-});
+  id: '',
+  text: '',
+  disabled: false
+})
 
 interface Emits {
-  (e: "click"): void;
+  (e: 'click'): void;
 }
 
-const emit = defineEmits<Emits>();
+const emit = defineEmits<Emits>()
 
 const handleClick = () => {
-  if (props.disabled) return;
-  emit("click");
-};
+  if (props.disabled) { return }
+  emit('click')
+}
 </script>
 
 <template>

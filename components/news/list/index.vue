@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import { NewsItemType } from "~/types/news";
+import { NewsItemType } from '~/types/news'
 
 interface Props {
   list: NewsItemType[];
 }
 withDefaults(defineProps<Props>(), {
-  list: () => [],
-});
+  list: () => []
+})
 const header = {
-  id: "header",
-  title: "タイトル",
-  overview: "概要",
-  createdAt: "作成日時",
-  updatedAt: "更新日時",
-};
+  id: 'header',
+  title: 'タイトル',
+  overview: '概要',
+  createdAt: '作成日時',
+  updatedAt: '更新日時'
+}
 </script>
 
 <template>

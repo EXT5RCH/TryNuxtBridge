@@ -1,23 +1,25 @@
 <script setup lang="ts">
-const { loginState, handleSubmit } = useLogin();
+const { loginState, handleSubmit } = useLogin()
 </script>
 
 <template>
   <div class="login">
     <form class="login__content" @submit.prevent="handleSubmit">
-      <div class="login__content-title">ログイン</div>
+      <div class="login__content-title">
+        ログイン
+      </div>
       <v-textbox
-        class="login__content-username"
         id="username"
-        label="ユーザー名"
         v-model="loginState.name"
+        class="login__content-username"
+        label="ユーザー名"
       />
       <v-textbox
-        class="login__content-password"
         id="password"
+        v-model="loginState.password"
+        class="login__content-password"
         label="パスワード"
         type="password"
-        v-model="loginState.password"
       />
       <v-button id="btn-login" class="login__content-button" text="ログイン" />
     </form>

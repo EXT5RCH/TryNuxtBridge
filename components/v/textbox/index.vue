@@ -1,59 +1,59 @@
 <script setup lang="ts">
-import { computed } from "@vue/reactivity";
+import { computed } from '@vue/reactivity'
 
 interface Props {
   value?: string;
   label: string;
   id: string;
   type?:
-    | "date"
-    | "datetime-local"
-    | "email"
-    | "number"
-    | "password"
-    | "tel"
-    | "text"
-    | "url";
+    | 'date'
+    | 'datetime-local'
+    | 'email'
+    | 'number'
+    | 'password'
+    | 'tel'
+    | 'text'
+    | 'url';
   disabled?: boolean;
   example?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  value: "",
-  label: "",
-  id: "",
-  type: "text",
-  disabled: false,
-});
+  value: '',
+  label: '',
+  id: '',
+  type: 'text',
+  disabled: false
+})
 
 interface Emits {
-  (e: "input", newValue: string): void;
+  (e: 'input', newValue: string): void;
 }
 
-const emit = defineEmits<Emits>();
+const emit = defineEmits<Emits>()
 
 const vmValue = computed({
   get: () => {
-    return props.value;
+    return props.value
   },
   set: (newValue: string) => {
-    emit("input", newValue);
-  },
-});
+    emit('input', newValue)
+  }
+})
 </script>
 
 <template>
   <label class="v-textbox">
-    <span v-text="label" class="v-textbox__label" />
+    <span class="v-textbox__label" v-text="label" />
     <input
-      v-model="vmValue"
       :id="id"
+      v-model="vmValue"
       :type="type"
       :disabled="disabled"
       class="v-textbox__input"
-    />
+    >
     <div v-if="!!example" class="v-textbox__example">
-      <div class="v-textbox__example-triangle"></div>
+      <div class="v-textbox__example-triangle" />
       <div class="v-textbox__example-text">
         <span v-text="`例）${props.example}`" />
       </div>

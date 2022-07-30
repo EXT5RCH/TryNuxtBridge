@@ -1,7 +1,7 @@
 <script lang="ts">
 export default {
-  layout: "user",
-};
+  layout: 'user'
+}
 </script>
 
 <template>

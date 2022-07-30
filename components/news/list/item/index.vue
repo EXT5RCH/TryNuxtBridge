@@ -1,53 +1,53 @@
 <script setup lang="ts">
-import { NewsItemType } from "~/types/news";
+import { NewsItemType } from '~/types/news'
 interface Props {
   item: NewsItemType;
   disabled: boolean;
 }
 const props = withDefaults(defineProps<Props>(), {
   item: () => ({
-    id: "",
-    title: "",
-    overview: "",
-    createdAt: "",
-    updatedAt: "",
+    id: '',
+    title: '',
+    overview: '',
+    createdAt: '',
+    updatedAt: ''
   }),
-  disabled: false,
-});
+  disabled: false
+})
 
 interface Emits {
-  (e: "click", id: string): void;
+  (e: 'click', id: string): void;
 }
-const emit = defineEmits<Emits>();
+const emit = defineEmits<Emits>()
 
 const handleClick = (id: string) => {
-  if (props.disabled) return;
-  emit("click", id);
-};
+  if (props.disabled) { return }
+  emit('click', id)
+}
 </script>
 
 <template>
   <div class="news-item" :disabled="disabled" @click="handleClick(item.id)">
     <div class="news-item__content">
       <span
-        v-text="item.title"
         :title="item.title"
         class="news-item__content-title"
+        v-text="item.title"
       />
       <span
-        v-text="item.overview"
         :title="item.overview"
         class="news-item__content-overview"
+        v-text="item.overview"
       />
       <span
-        v-text="item.createdAt"
         :title="item.createdAt"
         class="news-item__content-createdAt"
+        v-text="item.createdAt"
       />
       <span
-        v-text="item.updatedAt"
         :title="item.updatedAt"
         class="news-item__content-updatedAt"
+        v-text="item.updatedAt"
       />
     </div>
   </div>

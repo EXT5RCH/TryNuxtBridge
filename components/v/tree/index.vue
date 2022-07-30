@@ -3,27 +3,27 @@ interface Props {
   items?: TreeItemType[];
 }
 const props = withDefaults(defineProps<Props>(), {
-  items: () => [],
-});
+  items: () => []
+})
 
 interface Emits {
-  (e: "change", items: TreeItemType[]): void;
+  (e: 'change', items: TreeItemType[]): void;
 }
 
-const emit = defineEmits<Emits>();
+const emit = defineEmits<Emits>()
 
 const handleClickIcon = (id: string) => {
   const items = props.items.map((v) => {
-    return id === v.id ? { ...v, open: !v.open } : v;
-  });
-  emit("change", items);
-};
+    return id === v.id ? { ...v, open: !v.open } : v
+  })
+  emit('change', items)
+}
 const handleChangeTree = (items: TreeItemType[], id: string) => {
   const changedItems = props.items.map((v) => {
-    return id === v.id ? { ...v, items } : v;
-  });
-  emit("change", changedItems);
-};
+    return id === v.id ? { ...v, items } : v
+  })
+  emit('change', changedItems)
+}
 </script>
 
 <template>
@@ -41,17 +41,17 @@ const handleChangeTree = (items: TreeItemType[], id: string) => {
           <span class="material-icons">drag_handle </span>
         </div>
         <span
-          v-text="item.label"
           class="v-tree__item-content-label"
           :no-icon="item.type === 'array' && item.items.length <= 0"
+          v-text="item.label"
         />
       </div>
       <v-tree
         v-if="item.open && item.type === 'array'"
         :items="item.items"
         :open="item.open"
-        @change="handleChangeTree($event, item.id)"
         class="v-tree__item-tree"
+        @change="handleChangeTree($event, item.id)"
       />
     </li>
   </ul>

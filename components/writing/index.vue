@@ -1,24 +1,26 @@
 <script setup lang="ts">
-const { categoriesNewsState, fetchCategoriesNews } = useCategoriesNews();
-fetchCategoriesNews();
+const { categoriesNewsState, fetchCategoriesNews } = useCategoriesNews()
+fetchCategoriesNews()
 
 const handleChangeTree = (items: any) => {
-  categoriesNewsState.value = items;
-};
+  categoriesNewsState.value = items
+}
 </script>
 
 <template>
   <div class="writing">
     <div class="writing__menu">
-      <div class="writing__menu-title">記事一覧</div>
+      <div class="writing__menu-title">
+        記事一覧
+      </div>
       <div class="writing__menu-new">
-        <v-button class="writing__menu-new-button" text="新規作成" id="new" />
+        <v-button id="new" class="writing__menu-new-button" text="新規作成" />
       </div>
       <div class="writing__menu-content">
         <v-tree :items="categoriesNewsState" @change="handleChangeTree" />
       </div>
     </div>
-    <div class="writing__editor"></div>
+    <div class="writing__editor" />
   </div>
 </template>
 

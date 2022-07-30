@@ -1,63 +1,63 @@
 <script setup lang="ts">
-import { computed } from "@vue/reactivity";
-import { NewsSearchType } from "~/types/news";
+import { computed } from '@vue/reactivity'
+import { NewsSearchType } from '~/types/news'
 
 interface Props {
   value?: NewsSearchType;
 }
 const props = withDefaults(defineProps<Props>(), {
   value: () => ({
-    keyword: "",
-    poster: "",
-    searchStartAt: "",
-    searchEndAt: "",
-  }),
-});
+    keyword: '',
+    poster: '',
+    searchStartAt: '',
+    searchEndAt: ''
+  })
+})
 
 interface Emits {
-  (e: "click"): void;
-  (e: "input", value: NewsSearchType): void;
+  (e: 'click'): void;
+  (e: 'input', value: NewsSearchType): void;
 }
-const emit = defineEmits<Emits>();
+const emit = defineEmits<Emits>()
 
 const handleClick = () => {
-  emit("click");
-};
+  emit('click')
+}
 
 const vmKeyword = computed({
   get: () => {
-    return props.value.keyword;
+    return props.value.keyword
   },
   set: (keyword: string) => {
-    update({ keyword });
-  },
-});
+    update({ keyword })
+  }
+})
 const vmPoster = computed({
   get: () => {
-    return props.value.poster;
+    return props.value.poster
   },
   set: (poster: string) => {
-    update({ poster });
-  },
-});
+    update({ poster })
+  }
+})
 const vmSearchStartAt = computed({
   get: () => {
-    return props.value.searchStartAt;
+    return props.value.searchStartAt
   },
   set: (searchStartAt: string) => {
-    update({ searchStartAt });
-  },
-});
+    update({ searchStartAt })
+  }
+})
 const vmSearchEndAt = computed({
   get: () => {
-    return props.value.searchEndAt;
+    return props.value.searchEndAt
   },
   set: (searchEndAt: string) => {
-    update({ searchEndAt });
-  },
-});
+    update({ searchEndAt })
+  }
+})
 const update = (value: Partial<NewsSearchType>) =>
-  emit("input", { ...props.value, ...value });
+  emit('input', { ...props.value, ...value })
 </script>
 
 <template>
@@ -67,38 +67,38 @@ const update = (value: Partial<NewsSearchType>) =>
         <div class="news-search__content-input">
           <v-textbox
             id="keyword"
-            label="文章内検索（部分一致）"
             v-model="vmKeyword"
+            label="文章内検索（部分一致）"
             class="news-search__content-input-keyword"
           />
           <v-textbox
             id="poster"
-            label="投稿者（部分一致）"
             v-model="vmPoster"
+            label="投稿者（部分一致）"
             class="news-search__content-input-poster"
           />
         </div>
         <div class="news-search__content-period">
           <v-textbox
             id="search-start-at"
+            v-model="vmSearchStartAt"
             label="検索開始日"
             type="date"
-            v-model="vmSearchStartAt"
             class="news-search__content-period-start-at"
           />
           <v-textbox
             id="search-end-at"
+            v-model="vmSearchEndAt"
             label="検索終了日"
             type="date"
-            v-model="vmSearchEndAt"
             class="news-search__content-period-end-at"
           />
         </div>
         <v-button
           id="btn-search"
           text="検索"
-          @click="handleClick"
           class="news-search__content-button"
+          @click="handleClick"
         />
       </template>
     </v-accordion>

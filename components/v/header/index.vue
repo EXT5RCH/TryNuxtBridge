@@ -4,7 +4,9 @@
   <div class="header">
     <div class="header__left">
       <div class="logo">
-        <div class="logo__content">ロゴを設定</div>
+        <div class="logo__content">
+          ロゴを設定
+        </div>
       </div>
       <nuxt-link to="/news" class="menu">
         <span>記事</span>

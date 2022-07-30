@@ -2,6 +2,6 @@ export interface TreeItemType {
   id: string;
   label?: string;
   items: TreeItemType[];
-  type: "array" | "string";
+  type: 'array' | 'string';
   open: boolean;
 }

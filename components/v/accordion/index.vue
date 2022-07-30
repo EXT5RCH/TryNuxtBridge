@@ -4,9 +4,9 @@ interface Props {
   open?: boolean;
 }
 withDefaults(defineProps<Props>(), {
-  label: "",
-  open: true,
-});
+  label: '',
+  open: true
+})
 </script>
 
 <template>

@@ -5,16 +5,16 @@ interface Props {
   imageUrl?: string;
 }
 withDefaults(defineProps<Props>(), {
-  id: "",
-  title: "",
-  imageUrl: "",
-});
+  id: '',
+  title: '',
+  imageUrl: ''
+})
 </script>
 
 <template>
   <div class="v-card">
     <div class="v-card__content">
-      <img v-if="imageUrl" :src="imageUrl" :alt="title" />
+      <img v-if="imageUrl" :src="imageUrl" :alt="title">
     </div>
     <div class="v-card__title">
       <span v-text="title" />

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { searchState, listState, handleClickSearch } = useNews();
+const { searchState, listState, handleClickSearch } = useNews()
 </script>
 
 <template>

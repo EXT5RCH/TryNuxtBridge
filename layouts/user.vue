@@ -4,7 +4,9 @@
     <div class="body">
       <Nuxt />
     </div>
-    <div class="footer">フッター</div>
+    <div class="footer">
+      フッター
+    </div>
   </div>
 </template>
 

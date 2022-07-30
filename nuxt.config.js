@@ -1,4 +1,4 @@
-import { defineNuxtConfig } from "@nuxt/bridge";
+import { defineNuxtConfig } from '@nuxt/bridge'
 
 export default defineNuxtConfig({
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -6,24 +6,24 @@ export default defineNuxtConfig({
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "try-nuxt-bridge",
+    title: 'try-nuxt-bridge',
     htmlAttrs: {
-      lang: "en",
+      lang: 'en'
     },
     meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" },
-      { name: "format-detection", content: "telephone=no" },
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: '' },
+      { name: 'format-detection', content: 'telephone=no' }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["@/assets/css/main.css", "material-icons/iconfont/material-icons.css"],
+  css: ['@/assets/css/main.css', 'material-icons/iconfont/material-icons.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: "@/plugins/mock", mode: "client" }],
+  plugins: [{ src: '@/plugins/mock', mode: 'client' }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -31,7 +31,7 @@ export default defineNuxtConfig({
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
-    "@nuxtjs/tailwindcss",
+    '@nuxtjs/tailwindcss'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -41,8 +41,8 @@ export default defineNuxtConfig({
   build: {
     postcss: {
       plugins: {
-        "postcss-nested": {},
-      },
-    },
-  },
-});
+        'postcss-nested': {}
+      }
+    }
+  }
+})
