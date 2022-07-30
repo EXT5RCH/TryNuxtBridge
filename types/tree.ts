@@ -1,4 +1,4 @@
-interface TreeItemType {
+export interface TreeItemType {
   id: string;
   label?: string;
   items: TreeItemType[];
