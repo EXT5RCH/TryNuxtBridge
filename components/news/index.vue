@@ -4,9 +4,9 @@ const { searchState, listState, handleClickSearch } = useNews();
 
 <template>
   <div class="news">
-    <news-template-search v-model="searchState" @click="handleClickSearch" />
-    <news-template-count :count="listState.count" />
-    <news-template-list :list="listState.newsList" />
+    <news-search v-model="searchState" @click="handleClickSearch" />
+    <news-count :count="listState.count" />
+    <news-list :list="listState.newsList" />
   </div>
 </template>
 

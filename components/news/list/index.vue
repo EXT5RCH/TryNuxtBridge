@@ -18,13 +18,9 @@ const header = {
 
 <template>
   <div class="news-list">
-    <news-template-list-item
-      :item="header"
-      :disabled="true"
-      class="news-list__header"
-    />
+    <news-list-item :item="header" :disabled="true" class="news-list__header" />
     <div class="news-list__body">
-      <news-template-list-item
+      <news-list-item
         v-for="v in list"
         :key="v.id"
         :item="v"

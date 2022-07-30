@@ -5,5 +5,5 @@ export default {
 </script>
 
 <template>
-  <category-template />
+  <category />
 </template>

@@ -5,5 +5,5 @@ export default {
 </script>
 
 <template>
-  <news-template />
+  <news />
 </template>
