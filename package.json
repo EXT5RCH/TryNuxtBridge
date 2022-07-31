@@ -6,7 +6,8 @@
     "dev": "nuxi dev",
     "build": "nuxi build",
     "start": "nuxi preview",
-    "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore ."
+    "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
+    "prettier": "prettier -w -u ."
   },
   "dependencies": {
     "core-js": "^3.19.3",
@@ -24,11 +25,14 @@
     "@nuxtjs/tailwindcss": "^4.2.1",
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
+    "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/runtime-dom": "^3.2.37",
     "eslint": "^8.20.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.3.0",
     "msw": "^0.44.2",
     "postcss": "^8.4.4",
+    "prettier": "^2.7.1",
     "stylelint-config-recommended": "^8.0.0",
     "typescript": "^4.7.4"
   },
