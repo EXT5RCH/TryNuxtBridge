@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { computed } from '@vue/reactivity'
   import { NewsSearchType } from '~/types/news'
 
   interface Props {
