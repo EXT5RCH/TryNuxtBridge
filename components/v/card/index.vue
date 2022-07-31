@@ -1,14 +1,14 @@
 <script setup lang="ts">
-  interface Props {
-    id: string
-    title: string
-    imageUrl?: string
-  }
-  withDefaults(defineProps<Props>(), {
-    id: '',
-    title: '',
-    imageUrl: '',
-  })
+interface Props {
+  id: string
+  title: string
+  imageUrl?: string
+}
+withDefaults(defineProps<Props>(), {
+  id: '',
+  title: '',
+  imageUrl: '',
+})
 </script>
 
 <template>
@@ -23,37 +23,37 @@
 </template>
 
 <style lang="postcss" scoped>
-  .v-card {
-    @apply border;
-    @apply border-gray-200;
-    @apply rounded;
-    @apply flex-shrink;
-    @apply bg-white;
-    @apply h-64 w-96;
+.v-card {
+  @apply border;
+  @apply border-gray-200;
+  @apply rounded;
+  @apply flex-shrink;
+  @apply bg-white;
+  @apply h-64 w-96;
 
-    &:hover {
-      @apply bg-gradient-to-r;
-      @apply from-blue-200 to-purple-200;
-      @apply cursor-pointer;
-    }
+  &:hover {
+    @apply bg-gradient-to-r;
+    @apply from-blue-200 to-purple-200;
+    @apply cursor-pointer;
+  }
 
-    &__content {
-      @apply mt-2 mx-2;
-      height: 12.5rem;
-      @apply bg-gray-500;
+  &__content {
+    @apply mt-2 mx-2;
+    height: 12.5rem;
+    @apply bg-gray-500;
 
-      img {
-        @apply h-full w-full;
-        @apply object-cover;
-      }
-    }
-
-    &__title {
-      @apply p-2;
-      @apply flex;
-      @apply justify-center items-center;
-      @apply truncate;
-      @apply h-12;
+    img {
+      @apply h-full w-full;
+      @apply object-cover;
     }
   }
+
+  &__title {
+    @apply p-2;
+    @apply flex;
+    @apply justify-center items-center;
+    @apply truncate;
+    @apply h-12;
+  }
+}
 </style>

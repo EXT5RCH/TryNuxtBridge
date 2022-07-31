@@ -23,44 +23,44 @@
 </template>
 
 <style lang="postcss" scoped>
-  .header {
-    @apply h-12;
-    @apply bg-white;
+.header {
+  @apply h-12;
+  @apply bg-white;
+  @apply flex;
+  @apply justify-between items-center;
+
+  &__left {
     @apply flex;
-    @apply justify-between items-center;
+    @apply items-center;
+    @apply h-full;
 
-    &__left {
-      @apply flex;
-      @apply items-center;
-      @apply h-full;
+    .logo {
+      @apply px-2 py-1;
+      @apply w-32;
+      @apply justify-center items-center;
 
-      .logo {
-        @apply px-2 py-1;
-        @apply w-32;
-        @apply justify-center items-center;
-
-        &__content {
-          @apply w-full;
-          @apply text-center;
-          @apply font-bold;
-        }
-      }
-
-      .menu {
-        @apply p-1;
-        @apply w-16;
+      &__content {
+        @apply w-full;
         @apply text-center;
-
-        &:hover {
-          @apply rounded;
-          @apply bg-gray-100;
-          @apply cursor-pointer;
-        }
+        @apply font-bold;
       }
     }
 
-    &__right {
-      @apply h-full;
+    .menu {
+      @apply p-1;
+      @apply w-16;
+      @apply text-center;
+
+      &:hover {
+        @apply rounded;
+        @apply bg-gray-100;
+        @apply cursor-pointer;
+      }
     }
   }
+
+  &__right {
+    @apply h-full;
+  }
+}
 </style>

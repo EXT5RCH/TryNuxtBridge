@@ -1,12 +1,12 @@
 <script setup lang="ts">
-  interface Props {
-    label: string
-    open?: boolean
-  }
-  withDefaults(defineProps<Props>(), {
-    label: '',
-    open: true,
-  })
+interface Props {
+  label: string
+  open?: boolean
+}
+withDefaults(defineProps<Props>(), {
+  label: '',
+  open: true,
+})
 </script>
 
 <template>
@@ -17,8 +17,8 @@
 </template>
 
 <style lang="postcss">
-  .v-accordion {
-    @apply border;
-    @apply rounded;
-  }
+.v-accordion {
+  @apply border;
+  @apply rounded;
+}
 </style>

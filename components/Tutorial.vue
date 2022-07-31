@@ -116,7 +116,7 @@
 </template>
 
 <script>
-  export default {
-    name: 'NuxtTutorial',
-  }
+export default {
+  name: 'NuxtTutorial',
+}
 </script>

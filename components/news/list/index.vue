@@ -1,19 +1,19 @@
 <script setup lang="ts">
-  import { NewsItemType } from '~/types/news'
+import { NewsItemType } from '~/types/news'
 
-  interface Props {
-    list: NewsItemType[]
-  }
-  withDefaults(defineProps<Props>(), {
-    list: () => [],
-  })
-  const header = {
-    id: 'header',
-    title: 'タイトル',
-    overview: '概要',
-    createdAt: '作成日時',
-    updatedAt: '更新日時',
-  }
+interface Props {
+  list: NewsItemType[]
+}
+withDefaults(defineProps<Props>(), {
+  list: () => [],
+})
+const header = {
+  id: 'header',
+  title: 'タイトル',
+  overview: '概要',
+  createdAt: '作成日時',
+  updatedAt: '更新日時',
+}
 </script>
 
 <template>
@@ -31,21 +31,21 @@
 </template>
 
 <style lang="postcss" scoped>
-  .news-list {
-    @apply overflow-auto;
-    @apply gap-5;
-    @apply w-full;
+.news-list {
+  @apply overflow-auto;
+  @apply gap-5;
+  @apply w-full;
 
-    &__header {
-      @apply bg-gradient-to-r;
-      @apply from-blue-500 to-purple-500;
-      @apply text-gray-100;
-      @apply fixed;
-      width: calc(100% - 2.5rem);
-    }
-
-    &__body {
-      @apply pt-10;
-    }
+  &__header {
+    @apply bg-gradient-to-r;
+    @apply from-blue-500 to-purple-500;
+    @apply text-gray-100;
+    @apply fixed;
+    width: calc(100% - 2.5rem);
   }
+
+  &__body {
+    @apply pt-10;
+  }
+}
 </style>
