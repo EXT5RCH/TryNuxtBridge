@@ -1,63 +1,63 @@
 <script setup lang="ts">
-import { computed } from '@vue/reactivity'
-import { NewsSearchType } from '~/types/news'
+  import { computed } from '@vue/reactivity'
+  import { NewsSearchType } from '~/types/news'
 
-interface Props {
-  value?: NewsSearchType;
-}
-const props = withDefaults(defineProps<Props>(), {
-  value: () => ({
-    keyword: '',
-    poster: '',
-    searchStartAt: '',
-    searchEndAt: ''
+  interface Props {
+    value?: NewsSearchType
+  }
+  const props = withDefaults(defineProps<Props>(), {
+    value: () => ({
+      keyword: '',
+      poster: '',
+      searchStartAt: '',
+      searchEndAt: '',
+    }),
   })
-})
 
-interface Emits {
-  (e: 'click'): void;
-  (e: 'input', value: NewsSearchType): void;
-}
-const emit = defineEmits<Emits>()
+  interface Emits {
+    (e: 'click'): void
+    (e: 'input', value: NewsSearchType): void
+  }
+  const emit = defineEmits<Emits>()
 
-const handleClick = () => {
-  emit('click')
-}
+  const handleClick = () => {
+    emit('click')
+  }
 
-const vmKeyword = computed({
-  get: () => {
-    return props.value.keyword
-  },
-  set: (keyword: string) => {
-    update({ keyword })
-  }
-})
-const vmPoster = computed({
-  get: () => {
-    return props.value.poster
-  },
-  set: (poster: string) => {
-    update({ poster })
-  }
-})
-const vmSearchStartAt = computed({
-  get: () => {
-    return props.value.searchStartAt
-  },
-  set: (searchStartAt: string) => {
-    update({ searchStartAt })
-  }
-})
-const vmSearchEndAt = computed({
-  get: () => {
-    return props.value.searchEndAt
-  },
-  set: (searchEndAt: string) => {
-    update({ searchEndAt })
-  }
-})
-const update = (value: Partial<NewsSearchType>) =>
-  emit('input', { ...props.value, ...value })
+  const vmKeyword = computed({
+    get: () => {
+      return props.value.keyword
+    },
+    set: (keyword: string) => {
+      update({ keyword })
+    },
+  })
+  const vmPoster = computed({
+    get: () => {
+      return props.value.poster
+    },
+    set: (poster: string) => {
+      update({ poster })
+    },
+  })
+  const vmSearchStartAt = computed({
+    get: () => {
+      return props.value.searchStartAt
+    },
+    set: (searchStartAt: string) => {
+      update({ searchStartAt })
+    },
+  })
+  const vmSearchEndAt = computed({
+    get: () => {
+      return props.value.searchEndAt
+    },
+    set: (searchEndAt: string) => {
+      update({ searchEndAt })
+    },
+  })
+  const update = (value: Partial<NewsSearchType>) =>
+    emit('input', { ...props.value, ...value })
 </script>
 
 <template>
@@ -106,43 +106,43 @@ const update = (value: Partial<NewsSearchType>) =>
 </template>
 
 <style lang="postcss" scoped>
-.news-search {
-  @apply bg-gray-50;
-  @apply border;
-  @apply border-gray-300;
-  @apply shadow;
+  .news-search {
+    @apply bg-gray-50;
+    @apply border;
+    @apply border-gray-300;
+    @apply shadow;
 
-  &__content {
-    @apply flex flex-col;
-    @apply px-5 py-3;
-    @apply gap-2;
-
-    &-input {
-      @apply flex;
-      @apply flex-col sm:flex-row;
+    &__content {
+      @apply flex flex-col;
+      @apply px-5 py-3;
       @apply gap-2;
 
-      &-keyword,
-      &-poster {
+      &-input {
+        @apply flex;
+        @apply flex-col sm:flex-row;
+        @apply gap-2;
+
+        &-keyword,
+        &-poster {
+          @apply w-full;
+        }
+      }
+
+      &-period {
+        @apply flex;
+        @apply flex-col sm:flex-row;
+        @apply gap-2;
+
+        &-start-at,
+        &-end-at {
+          @apply w-full;
+        }
+      }
+
+      &-button {
+        @apply mt-4;
         @apply w-full;
       }
-    }
-
-    &-period {
-      @apply flex;
-      @apply flex-col sm:flex-row;
-      @apply gap-2;
-
-      &-start-at,
-      &-end-at {
-        @apply w-full;
-      }
-    }
-
-    &-button {
-      @apply mt-4;
-      @apply w-full;
     }
   }
-}
 </style>

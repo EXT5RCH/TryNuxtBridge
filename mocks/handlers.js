@@ -23,10 +23,10 @@ export const handlers = [
       res,
       ctx,
       ctx.json(
-        [...Array(100).keys()].map(v => ({
+        [...Array(100).keys()].map((v) => ({
           id: (v + 1).toString(),
           title: `カテゴリ${v + 1}`,
-          imageUrl: `https://source.unsplash.com/random/${v + 1}`
+          imageUrl: `https://source.unsplash.com/random/${v + 1}`,
         }))
       )
     )
@@ -44,14 +44,14 @@ export const handlers = [
             {
               id: '1-1',
               label: '記事１',
-              type: 'string'
+              type: 'string',
             },
             {
               id: '1-2',
               label: '記事２',
-              type: 'string'
-            }
-          ]
+              type: 'string',
+            },
+          ],
         },
         {
           id: '2',
@@ -66,11 +66,11 @@ export const handlers = [
                 {
                   id: '2-game-4',
                   label: '記事３',
-                  type: 'string'
-                }
-              ]
-            }
-          ]
+                  type: 'string',
+                },
+              ],
+            },
+          ],
         },
         {
           id: '3',
@@ -80,10 +80,10 @@ export const handlers = [
             {
               id: '3-1',
               label: '記事３',
-              type: 'string'
-            }
-          ]
-        }
+              type: 'string',
+            },
+          ],
+        },
       ])
     )
   }),
@@ -97,22 +97,22 @@ export const handlers = [
           title: 'テスト１',
           overview: 'テスト記事１です。',
           createdAt: '2022-12-11',
-          updatedAt: '2022-12-11'
+          updatedAt: '2022-12-11',
         },
         {
           id: '2',
           title: 'テスト２',
           overview: 'テスト記事２です。',
           createdAt: '2022-12-11',
-          updatedAt: '2022-12-11'
+          updatedAt: '2022-12-11',
         },
         {
           id: '3',
           title: 'テスト３',
           overview: 'テスト記事３です。',
           createdAt: '2022-12-11',
-          updatedAt: '2022-12-11'
-        }
+          updatedAt: '2022-12-11',
+        },
       ])
     )
   }),
@@ -122,10 +122,10 @@ export const handlers = [
       ctx,
       ctx.json({
         count: 3,
-        total: 3
+        total: 3,
       })
     )
-  })
+  }),
 ]
 
 class Response {
@@ -133,11 +133,11 @@ class Response {
     return res(ctx.status(200), ...options)
   }
 
-  static unauthorized (res, ctx) {
+  static unauthorized(res, ctx) {
     return res(ctx.status(401), ctx.json({ message: 'Unauthorized.' }))
   }
 
-  static notFound (res, ctx, name) {
+  static notFound(res, ctx, name) {
     return res(ctx.status(404), ctx.json({ message: `${name} not found.` }))
   }
 }

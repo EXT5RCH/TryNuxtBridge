@@ -1,16 +1,16 @@
-export function useLogin () {
+export function useLogin() {
   const router = useRouter()
   const loginState = ref({
     name: '',
-    password: ''
+    password: '',
   })
   const handleSubmit = async () => {
     const res = await fetch('/login', {
       method: 'POST',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
       },
-      body: JSON.stringify(loginState.value)
+      body: JSON.stringify(loginState.value),
     })
     if (res.ok) {
       router.push('/news')

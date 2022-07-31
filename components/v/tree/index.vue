@@ -1,29 +1,29 @@
 <script setup lang="ts">
-interface Props {
-  items?: TreeItemType[];
-}
-const props = withDefaults(defineProps<Props>(), {
-  items: () => []
-})
-
-interface Emits {
-  (e: 'change', items: TreeItemType[]): void;
-}
-
-const emit = defineEmits<Emits>()
-
-const handleClickIcon = (id: string) => {
-  const items = props.items.map((v) => {
-    return id === v.id ? { ...v, open: !v.open } : v
+  interface Props {
+    items?: TreeItemType[]
+  }
+  const props = withDefaults(defineProps<Props>(), {
+    items: () => [],
   })
-  emit('change', items)
-}
-const handleChangeTree = (items: TreeItemType[], id: string) => {
-  const changedItems = props.items.map((v) => {
-    return id === v.id ? { ...v, items } : v
-  })
-  emit('change', changedItems)
-}
+
+  interface Emits {
+    (e: 'change', items: TreeItemType[]): void
+  }
+
+  const emit = defineEmits<Emits>()
+
+  const handleClickIcon = (id: string) => {
+    const items = props.items.map((v) => {
+      return id === v.id ? { ...v, open: !v.open } : v
+    })
+    emit('change', items)
+  }
+  const handleChangeTree = (items: TreeItemType[], id: string) => {
+    const changedItems = props.items.map((v) => {
+      return id === v.id ? { ...v, items } : v
+    })
+    emit('change', changedItems)
+  }
 </script>
 
 <template>
@@ -58,35 +58,35 @@ const handleChangeTree = (items: TreeItemType[], id: string) => {
 </template>
 
 <style lang="postcss">
-.v-tree {
-  @apply flex flex-col;
+  .v-tree {
+    @apply flex flex-col;
 
-  &__item {
-    @apply items-center;
+    &__item {
+      @apply items-center;
 
-    &-content {
-      @apply flex;
-      @apply cursor-pointer;
-
-      &-icon-list,
-      &-icon-handle {
+      &-content {
         @apply flex;
-      }
-
-      &-icon-list {
         @apply cursor-pointer;
-      }
 
-      &-label {
-        &[no-icon] {
-          @apply pl-6;
+        &-icon-list,
+        &-icon-handle {
+          @apply flex;
+        }
+
+        &-icon-list {
+          @apply cursor-pointer;
+        }
+
+        &-label {
+          &[no-icon] {
+            @apply pl-6;
+          }
         }
       }
-    }
 
-    &-tree {
-      @apply pl-6;
+      &-tree {
+        @apply pl-6;
+      }
     }
   }
-}
 </style>
