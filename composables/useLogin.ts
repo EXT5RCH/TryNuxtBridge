@@ -4,7 +4,7 @@ export function useLogin() {
     name: '',
     password: '',
   })
-  const handleSubmit = async () => {
+  const handleLogin = async () => {
     const res = await fetch('/login', {
       method: 'POST',
       headers: {
@@ -19,5 +19,14 @@ export function useLogin() {
       alert(message)
     }
   }
-  return { loginState, handleSubmit }
+  const handleLogout = async () => {
+    await fetch('/logout', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
+    router.push('/login')
+  }
+  return { loginState, handleLogin, handleLogout }
 }

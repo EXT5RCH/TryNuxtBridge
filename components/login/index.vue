@@ -1,10 +1,10 @@
 <script setup lang="ts">
-const { loginState, handleSubmit } = useLogin()
+const { loginState, handleLogin } = useLogin()
 </script>
 
 <template>
   <div class="login">
-    <form class="login__content" @submit.prevent="handleSubmit">
+    <form class="login__content" @submit.prevent="handleLogin">
       <div class="login__content-title">ログイン</div>
       <v-textbox
         id="username"
