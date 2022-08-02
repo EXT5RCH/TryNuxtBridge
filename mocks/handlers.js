@@ -4,6 +4,10 @@ const loginUserName = 'admin'
 const loginPassword = 'admin'
 const authToken = 'token'
 
+const isValidToken = (req) => {
+  return req.cookies['auth-token'] === authToken
+}
+
 export const handlers = [
   rest.post('/login', async (req, res, ctx) => {
     const { name, password } = await req.json()
@@ -21,8 +25,9 @@ export const handlers = [
     )
   }),
   rest.post('/session', (req, res, ctx) => {
-    const { authToken } = req.cookies
-    if (!authToken) {
+    if (isValidToken(req)) {
+      return Response.success(res, ctx, ctx.json({}))
+    } else {
       return Response.unauthorized(res, ctx)
     }
   }),

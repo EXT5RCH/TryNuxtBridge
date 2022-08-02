@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { loginState, handleLogin } = useLogin()
+const { loginState, handleLogin } = useSession()
 </script>
 
 <template>

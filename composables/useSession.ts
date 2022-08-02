@@ -1,4 +1,4 @@
-export function useLogin() {
+export function useSession() {
   const router = useRouter()
   const loginState = ref({
     name: '',
@@ -28,5 +28,18 @@ export function useLogin() {
     })
     router.push('/login')
   }
-  return { loginState, handleLogin, handleLogout }
+  const checkSession = async () => {
+    const res = await fetch('/session', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+    })
+    if (!res.ok) {
+      router.push('/error')
+      return false
+    }
+    return true
+  }
+  return { loginState, handleLogin, handleLogout, checkSession }
 }

@@ -1,6 +1,13 @@
 <script setup lang="ts">
 const { categoriesState, fetchCategories } = useCategories()
-fetchCategories()
+const { checkSession } = useSession()
+onBeforeMount(async () => {
+  const result = await checkSession()
+  if (!result) {
+    return
+  }
+  await fetchCategories()
+})
 </script>
 
 <template>

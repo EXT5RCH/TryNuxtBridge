@@ -1,5 +1,13 @@
 <script setup lang="ts">
 const { searchState, listState, handleClickSearch } = useNews()
+const { checkSession } = useSession()
+onBeforeMount(async () => {
+  const result = await checkSession()
+  if (!result) {
+    return
+  }
+  await handleClickSearch()
+})
 </script>
 
 <template>
