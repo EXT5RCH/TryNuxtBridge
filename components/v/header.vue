@@ -1,4 +1,13 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const { handleLogout } = useSession()
+const contextMenuItems = [
+  {
+    label: 'ログアウト',
+    func: () => handleLogout(),
+    type: 'func',
+  },
+]
+</script>
 
 <template>
   <div class="header">
@@ -17,7 +26,12 @@
       </nuxt-link>
     </div>
     <div class="header__right">
-      <v-profile-icon />
+      <v-drop-down-list class="drop-down-list" :items="contextMenuItems">
+        <template>
+          <v-profile-icon />
+          <span class="material-icons">arrow_drop_down</span>
+        </template>
+      </v-drop-down-list>
     </div>
   </div>
 </template>
@@ -61,6 +75,10 @@
 
   &__right {
     @apply h-full;
+
+    .drop-down-list {
+      @apply w-24;
+    }
   }
 }
 </style>
