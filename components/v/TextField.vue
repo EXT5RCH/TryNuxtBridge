@@ -8,10 +8,10 @@ interface Props {
     | 'datetime-local'
     | 'email'
     | 'number'
-    | 'password'
     | 'tel'
     | 'text'
     | 'url'
+    | 'search'
   disabled?: boolean
   example?: string
 }
@@ -41,18 +41,20 @@ const vmValue = computed({
 </script>
 
 <template>
-  <label class="v-textbox">
-    <span class="v-textbox__label" v-text="label" />
-    <input
-      :id="id"
-      v-model="vmValue"
-      :type="type"
-      :disabled="disabled"
-      class="v-textbox__input"
-    />
-    <div v-if="!!example" class="v-textbox__example">
-      <div class="v-textbox__example-triangle" />
-      <div class="v-textbox__example-text">
+  <label class="v-text-field">
+    <span class="v-text-field__label" v-text="label" />
+    <div :disabled="disabled" class="v-text-field__content">
+      <input
+        :id="id"
+        v-model="vmValue"
+        :type="type"
+        :disabled="disabled"
+        class="v-text-field__content-input"
+      />
+    </div>
+    <div v-if="!!example" class="v-text-field__example">
+      <div class="v-text-field__example-triangle" />
+      <div class="v-text-field__example-text">
         <span v-text="`例）${props.example}`" />
       </div>
     </div>
@@ -60,25 +62,43 @@ const vmValue = computed({
 </template>
 
 <style lang="postcss" scoped>
-.v-textbox {
+.v-text-field {
   @apply flex flex-col;
 
-  &__input {
+  &__content {
+    @apply flex;
+    @apply flex-grow;
+    @apply gap-2;
+    @apply px-3 py-2;
     @apply border rounded;
-    @apply px-2 py-1;
+    @apply bg-white;
 
-    &:enabled:focus {
+    &:focus-within {
       @apply outline-none;
       @apply border-blue-400;
-
-      & + .v-textbox__example {
-        @apply block;
-      }
     }
 
-    &:disabled {
+    &[disabled] {
       @apply bg-gray-50;
       @apply text-gray-500;
+    }
+    &-input {
+      @apply flex;
+      @apply flex-grow;
+      @apply border-none;
+
+      &:enabled:focus {
+        @apply outline-none;
+
+        & + .v-text-field__example {
+          @apply block;
+        }
+      }
+
+      &:disabled {
+        @apply bg-gray-50;
+        @apply text-gray-500;
+      }
     }
   }
 
