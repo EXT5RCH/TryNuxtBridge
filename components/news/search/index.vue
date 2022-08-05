@@ -64,28 +64,30 @@ const update = (value: Partial<NewsSearchType>) =>
     <v-accordion label="記事検索" class="news-search__content">
       <template>
         <div class="news-search__content-input">
-          <v-textbox
+          <v-text-field
             id="keyword"
             v-model="vmKeyword"
             label="文章内検索（部分一致）"
+            type="search"
             class="news-search__content-input-keyword"
           />
-          <v-textbox
+          <v-text-field
             id="poster"
             v-model="vmPoster"
             label="投稿者（部分一致）"
+            type="search"
             class="news-search__content-input-poster"
           />
         </div>
         <div class="news-search__content-period">
-          <v-textbox
+          <v-text-field
             id="search-start-at"
             v-model="vmSearchStartAt"
             label="検索開始日"
             type="date"
             class="news-search__content-period-start-at"
           />
-          <v-textbox
+          <v-text-field
             id="search-end-at"
             v-model="vmSearchEndAt"
             label="検索終了日"
