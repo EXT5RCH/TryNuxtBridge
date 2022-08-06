@@ -73,6 +73,7 @@ const handleViewPassword = () => {
     @apply px-3 py-2;
     @apply border rounded;
     @apply bg-white;
+    @apply border-gray-300;
 
     &:focus-within {
       @apply outline-none;

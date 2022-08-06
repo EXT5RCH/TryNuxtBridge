@@ -71,6 +71,7 @@ const vmValue = computed({
     @apply gap-2;
     @apply px-3 py-2;
     @apply border rounded;
+    @apply border-gray-300;
     @apply bg-white;
 
     &:focus-within {
