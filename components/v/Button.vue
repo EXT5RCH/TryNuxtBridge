@@ -3,12 +3,14 @@ interface Props {
   id: string
   text: string
   disabled?: boolean
+  mode?: 'primary' | 'secondary'
 }
 
 const props = withDefaults(defineProps<Props>(), {
   id: '',
   text: '',
   disabled: false,
+  mode: 'primary',
 })
 
 interface Emits {
@@ -26,7 +28,13 @@ const handleClick = () => {
 </script>
 
 <template>
-  <button :id="id" class="v-button" :disabled="disabled" @click="handleClick">
+  <button
+    :id="id"
+    class="v-button"
+    :mode="mode"
+    :disabled="disabled"
+    @click="handleClick"
+  >
     <span v-text="text" />
   </button>
 </template>
@@ -36,9 +44,14 @@ const handleClick = () => {
   @apply border rounded;
   @apply p-2;
 
-  &:enabled {
+  &:enabled[mode='primary'] {
     @apply bg-gray-700;
     @apply text-gray-100;
+  }
+
+  &:enabled[mode='secondary'] {
+    @apply bg-gray-300;
+    @apply text-gray-900;
   }
 
   &:disabled {
