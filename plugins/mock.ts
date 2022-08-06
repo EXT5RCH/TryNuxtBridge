@@ -1,4 +1,4 @@
-import { worker } from '../mocks/browser.js'
+import { worker } from '../mocks/browser'
 
 export default () => {
   if (process.env.NODE_ENV === 'development') {

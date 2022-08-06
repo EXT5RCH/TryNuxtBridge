@@ -1,10 +1,10 @@
-import { rest } from 'msw'
+import { MockedRequest, rest } from 'msw'
 
 const loginUserName = 'admin'
 const loginPassword = 'admin'
 const authToken = 'token'
 
-const isValidToken = (req) => {
+const isValidToken = (req: MockedRequest) => {
   return req.cookies['auth-token'] === authToken
 }
 
@@ -12,31 +12,26 @@ export const handlers = [
   rest.post('/login', async (req, res, ctx) => {
     const { name, password } = await req.json()
     if (name === loginUserName && password === loginPassword) {
-      return Response.success(res, ctx, ctx.cookie('auth-token', authToken))
+      return res(ctx.status(200), ctx.cookie('auth-token', authToken))
     } else {
-      return Response.unauthorized(res, ctx)
+      return res(ctx.status(401), ctx.json({ message: 'Unauthorized.' }))
     }
   }),
   rest.post('/logout', (_req, res, ctx) => {
-    return Response.success(
-      res,
-      ctx,
-      ctx.cookie('auth-token', null, { maxAge: 0 })
-    )
+    return res(ctx.status(200), ctx.cookie('auth-token', '', { maxAge: 0 }))
   }),
   rest.post('/session', (req, res, ctx) => {
     if (isValidToken(req)) {
-      return Response.success(res, ctx, ctx.json({}))
+      return res(ctx.status(200), ctx.json({}))
     } else {
-      return Response.unauthorized(res, ctx)
+      return res(ctx.status(401), ctx.json({ message: 'Unauthorized.' }))
     }
   }),
   rest.get('/categories', (_req, res, ctx) => {
-    return Response.success(
-      res,
-      ctx,
+    return res(
+      ctx.status(200),
       ctx.json(
-        [...Array(100).keys()].map((v) => ({
+        [...Array(100).keys()].map((v: number) => ({
           id: (v + 1).toString(),
           title: `カテゴリ${v + 1}`,
           imageUrl: `https://source.unsplash.com/random/${v + 1}`,
@@ -45,9 +40,8 @@ export const handlers = [
     )
   }),
   rest.get('/categories_news', (_req, res, ctx) => {
-    return Response.success(
-      res,
-      ctx,
+    return res(
+      ctx.status(200),
       ctx.json([
         {
           id: '1',
@@ -101,9 +95,8 @@ export const handlers = [
     )
   }),
   rest.get('/news', (_req, res, ctx) => {
-    return Response.success(
-      res,
-      ctx,
+    return res(
+      ctx.status(200),
       ctx.json([
         {
           id: '1',
@@ -130,9 +123,8 @@ export const handlers = [
     )
   }),
   rest.get('/count/news', (_req, res, ctx) => {
-    return Response.success(
-      res,
-      ctx,
+    return res(
+      ctx.status(200),
       ctx.json({
         count: 3,
         total: 3,
@@ -140,17 +132,3 @@ export const handlers = [
     )
   }),
 ]
-
-class Response {
-  static success = (res, ctx, ...options) => {
-    return res(ctx.status(200), ...options)
-  }
-
-  static unauthorized(res, ctx) {
-    return res(ctx.status(401), ctx.json({ message: 'Unauthorized.' }))
-  }
-
-  static notFound(res, ctx, name) {
-    return res(ctx.status(404), ctx.json({ message: `${name} not found.` }))
-  }
-}
