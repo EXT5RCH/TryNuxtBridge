@@ -1,5 +1,5 @@
 <script setup lang="ts">
-interface contextMenuItem {
+interface MenuItem {
   label: string
   type: 'nLink' | 'link' | 'func'
   linkUrl?: string
@@ -7,7 +7,7 @@ interface contextMenuItem {
 }
 
 interface Props {
-  items: contextMenuItem[]
+  items: MenuItem[]
 }
 
 withDefaults(defineProps<Props>(), {
@@ -36,8 +36,8 @@ const handleMouseLeave = (e: MouseEvent) => {
     <button class="button" @mouseover="handleMouseOver">
       <slot />
     </button>
-    <div class="context-menu" @mouseover="handleMouseOver">
-      <div v-for="item in items" :key="item.label" class="context-menu__item">
+    <div class="menu" @mouseover="handleMouseOver">
+      <div v-for="item in items" :key="item.label" class="menu__item">
         <a
           v-if="item.type === 'link'"
           :href="item.linkUrl"
@@ -71,12 +71,12 @@ const handleMouseLeave = (e: MouseEvent) => {
     z-index: 11;
   }
 
-  .context-menu {
+  .menu {
     @apply hidden;
   }
 
   &[aria-expanded='true'] {
-    .context-menu {
+    .menu {
       @apply flex flex-col;
       @apply bg-white;
       @apply w-full;

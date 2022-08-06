@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { handleLogout } = useSession()
-const contextMenuItems = [
+const menuItems = [
   {
     label: 'ログアウト',
     func: () => handleLogout(),
@@ -26,7 +26,7 @@ const contextMenuItems = [
       </nuxt-link>
     </div>
     <div class="header__right">
-      <v-drop-down-list class="drop-down-list" :items="contextMenuItems">
+      <v-drop-down-list class="drop-down-list" :items="menuItems">
         <template>
           <v-profile-icon />
           <span class="material-icons">arrow_drop_down</span>
