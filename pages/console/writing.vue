@@ -1,6 +1,6 @@
 <script>
 export default {
-  layout: 'user',
+  layout: 'console',
 }
 </script>
 
