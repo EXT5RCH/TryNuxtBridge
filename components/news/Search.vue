@@ -109,8 +109,6 @@ const update = (value: Partial<NewsSearchType>) =>
 <style lang="postcss" scoped>
 .news-search {
   @apply bg-gray-50;
-  @apply border;
-  @apply border-gray-300;
   @apply shadow;
 
   &__content {

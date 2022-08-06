@@ -19,6 +19,6 @@ withDefaults(defineProps<Props>(), {
 <style lang="postcss">
 .v-accordion {
   @apply border;
-  @apply rounded;
+  @apply border-gray-300;
 }
 </style>
