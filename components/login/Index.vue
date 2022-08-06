@@ -36,7 +36,7 @@ const { loginState, handleLogin } = useSession()
     @apply flex flex-col;
     @apply justify-center items-center;
     @apply gap-8;
-    @apply bg-white;
+    @apply bg-gray-50;
     width: 1000px;
     height: 640px;
 
