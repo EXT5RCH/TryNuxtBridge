@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import { v4 as uuidv4 } from 'uuid'
+
 interface Props {
-  id: string
+  id?: string
   text: string
   disabled?: boolean
   mode?: 'primary' | 'secondary'
 }
-
 const props = withDefaults(defineProps<Props>(), {
   id: '',
   text: '',
@@ -16,7 +17,6 @@ const props = withDefaults(defineProps<Props>(), {
 interface Emits {
   (e: 'click'): void
 }
-
 const emit = defineEmits<Emits>()
 
 const handleClick = () => {
@@ -25,11 +25,15 @@ const handleClick = () => {
   }
   emit('click')
 }
+
+const vbId = computed(() => {
+  return props.id ? props.id : uuidv4()
+})
 </script>
 
 <template>
   <button
-    :id="id"
+    :id="vbId"
     class="v-button"
     :mode="mode"
     :disabled="disabled"

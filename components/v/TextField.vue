@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { v4 as uuidv4 } from 'uuid'
+
 interface Props {
   value?: string
   label: string
-  id: string
+  id?: string
   type?:
     | 'date'
     | 'datetime-local'
@@ -15,7 +17,6 @@ interface Props {
   disabled?: boolean
   example?: string
 }
-
 const props = withDefaults(defineProps<Props>(), {
   value: '',
   label: '',
@@ -27,7 +28,6 @@ const props = withDefaults(defineProps<Props>(), {
 interface Emits {
   (e: 'input', newValue: string): void
 }
-
 const emit = defineEmits<Emits>()
 
 const vmValue = computed({
@@ -38,6 +38,10 @@ const vmValue = computed({
     emit('input', newValue)
   },
 })
+
+const vbId = computed(() => {
+  return props.id ? props.id : uuidv4()
+})
 </script>
 
 <template>
@@ -45,7 +49,7 @@ const vmValue = computed({
     <span class="v-text-field__label" v-text="label" />
     <div :disabled="disabled" class="v-text-field__content">
       <input
-        :id="id"
+        :id="vbId"
         v-model="vmValue"
         :type="type"
         :disabled="disabled"
