@@ -33,10 +33,12 @@ const { loginState, handleLogin } = useSession()
 
   &__content {
     @apply border rounded;
+    @apply border-gray-200;
     @apply flex flex-col;
     @apply justify-center items-center;
     @apply gap-8;
     @apply bg-gray-50;
+    @apply shadow;
     width: 1000px;
     height: 640px;
 
