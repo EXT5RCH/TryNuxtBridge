@@ -1,14 +1,3 @@
-<script setup lang="ts">
-const { handleLogout } = useSession()
-const menuItems = [
-  {
-    label: 'ログアウト',
-    func: () => handleLogout(),
-    type: 'func',
-  },
-]
-</script>
-
 <template>
   <div class="layout">
     <div class="header">
@@ -17,13 +6,7 @@ const menuItems = [
           <div class="logo__content">ロゴを設定</div>
         </div>
         <nuxt-link to="/news" class="menu">
-          <span>記事</span>
-        </nuxt-link>
-        <nuxt-link to="/category" class="menu">
-          <span>カテゴリ</span>
-        </nuxt-link>
-        <nuxt-link to="/console/writing" class="menu">
-          <span>管理側へ移動</span>
+          <span>ユーザー側へ移動</span>
         </nuxt-link>
       </div>
       <div class="header__right">
@@ -38,7 +21,6 @@ const menuItems = [
     <div class="body">
       <Nuxt />
     </div>
-    <div class="footer">フッター</div>
   </div>
 </template>
 
@@ -48,7 +30,8 @@ const menuItems = [
 
   .header {
     @apply h-12;
-    @apply bg-white;
+    @apply bg-gray-900;
+    @apply text-gray-50;
     @apply flex;
     @apply justify-between items-center;
 
@@ -75,7 +58,7 @@ const menuItems = [
 
         &:hover {
           @apply rounded;
-          @apply bg-gray-100;
+          @apply bg-gray-700;
           @apply cursor-pointer;
         }
       }
@@ -92,17 +75,7 @@ const menuItems = [
 
   .body {
     @apply flex;
-    height: calc(100% - 5.5rem);
-  }
-
-  .footer {
-    @apply bottom-0;
-    @apply flex;
-    @apply justify-center items-center;
-    @apply h-10;
-    @apply w-full;
-    @apply bg-gray-900;
-    @apply text-gray-200;
+    height: calc(100% - 3rem);
   }
 }
 </style>
