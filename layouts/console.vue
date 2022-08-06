@@ -9,14 +9,6 @@
           <span>ユーザー側へ移動</span>
         </nuxt-link>
       </div>
-      <div class="header__right">
-        <v-drop-down-list class="drop-down-list" :items="menuItems">
-          <template>
-            <v-profile-icon />
-            <span class="material-icons">arrow_drop_down</span>
-          </template>
-        </v-drop-down-list>
-      </div>
     </div>
     <div class="body">
       <Nuxt />
@@ -66,10 +58,6 @@
 
     &__right {
       @apply h-full;
-
-      .drop-down-list {
-        @apply w-24;
-      }
     }
   }
 
