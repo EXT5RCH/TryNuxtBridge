@@ -38,7 +38,8 @@ onBeforeMount(async () => {
 .news {
   @apply h-full w-full;
   @apply flex flex-col;
-  @apply bg-blue-50;
+  @apply bg-gradient-to-r;
+  @apply from-blue-100 to-purple-100;
   @apply p-5;
   @apply gap-5;
 }

@@ -49,7 +49,8 @@ const handleChangeTree = (items: any) => {
 .writing {
   @apply flex;
   @apply h-full w-full;
-  @apply bg-blue-50;
+  @apply bg-gradient-to-r;
+  @apply from-blue-100 to-purple-100;
   @apply p-4;
   @apply gap-4;
 

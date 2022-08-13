@@ -4,8 +4,8 @@ const { loginState, handleLogin } = useSession()
 
 <template>
   <div class="login">
+    <div class="login__title">ログイン</div>
     <form class="login__content" @submit.prevent="handleLogin">
-      <div class="login__content-title">ログイン</div>
       <v-text-field
         id="username"
         v-model="loginState.name"
@@ -27,33 +27,34 @@ const { loginState, handleLogin } = useSession()
 <style lang="postcss" scoped>
 .login {
   @apply h-full w-full;
-  @apply flex;
+  @apply flex flex-col;
+  @apply gap-2;
   @apply justify-center items-center;
-  @apply bg-blue-50;
+  @apply bg-gradient-to-r;
+  @apply from-blue-100 to-purple-100;
+
+  &__title {
+    @apply text-4xl;
+  }
 
   &__content {
-    @apply border rounded;
-    @apply border-gray-200;
+    @apply border;
+    @apply border-gray-300;
     @apply flex flex-col;
     @apply justify-center items-center;
-    @apply gap-8;
+    @apply gap-2;
     @apply bg-gray-50;
-    @apply shadow;
-    width: 1000px;
-    height: 640px;
-
-    &-title {
-      @apply text-4xl;
-    }
+    @apply w-96;
+    @apply h-72;
 
     &-username,
     &-password {
-      @apply w-1/2;
+      @apply w-3/4;
     }
 
     &-button {
       @apply mt-4;
-      @apply w-1/2;
+      @apply w-3/4;
     }
   }
 }
