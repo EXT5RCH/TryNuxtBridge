@@ -40,8 +40,11 @@ const handleViewPassword = () => {
 
 <template>
   <label class="v-password">
-    <span class="v-password__label" v-text="label" />
-    <div :disabled="disabled" class="v-password__content">
+    <div
+      :disabled="disabled"
+      class="v-password__content"
+      :is-val="vmValue !== ''"
+    >
       <input
         :id="id"
         v-model="vmValue"
@@ -59,25 +62,38 @@ const handleViewPassword = () => {
         <span v-else class="material-icons"> visibility_off </span>
       </button>
     </div>
+    <span class="v-password__label" v-text="label" />
   </label>
 </template>
 
 <style lang="postcss" scoped>
 .v-password {
   @apply flex flex-col;
+  @apply relative;
+  @apply mt-6;
 
   &__content {
     @apply flex;
     @apply flex-grow;
     @apply gap-2;
     @apply px-3 py-2;
-    @apply border rounded;
-    @apply bg-white;
+    @apply border-b-2;
     @apply border-gray-300;
+    @apply bg-white;
 
     &:focus-within {
       @apply outline-none;
       @apply border-blue-400;
+    }
+
+    &:focus-within,
+    &[is-val='true'] {
+      & + span {
+        top: -1.5rem;
+        left: 0;
+        color: rgba(0, 0, 0);
+        @apply text-sm;
+      }
     }
 
     &[disabled] {
@@ -107,6 +123,14 @@ const handleViewPassword = () => {
         @apply cursor-default;
       }
     }
+  }
+
+  &__label {
+    @apply absolute;
+    top: 0.5rem;
+    left: 0.75rem;
+    color: rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-out;
   }
 }
 </style>

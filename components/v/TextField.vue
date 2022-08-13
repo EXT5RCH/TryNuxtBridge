@@ -46,8 +46,11 @@ const vbId = computed(() => {
 
 <template>
   <label class="v-text-field">
-    <span class="v-text-field__label" v-text="label" />
-    <div :disabled="disabled" class="v-text-field__content">
+    <div
+      :disabled="disabled"
+      class="v-text-field__content"
+      :is-val="vmValue !== ''"
+    >
       <input
         :id="vbId"
         v-model="vmValue"
@@ -56,6 +59,7 @@ const vbId = computed(() => {
         class="v-text-field__content-input"
       />
     </div>
+    <span class="v-text-field__label" v-text="label" />
     <div v-if="!!example" class="v-text-field__example">
       <div class="v-text-field__example-triangle" />
       <div class="v-text-field__example-text">
@@ -68,13 +72,15 @@ const vbId = computed(() => {
 <style lang="postcss" scoped>
 .v-text-field {
   @apply flex flex-col;
+  @apply relative;
+  @apply mt-6;
 
   &__content {
     @apply flex;
     @apply flex-grow;
     @apply gap-2;
     @apply px-3 py-2;
-    @apply border rounded;
+    @apply border-b-2;
     @apply border-gray-300;
     @apply bg-white;
 
@@ -83,14 +89,30 @@ const vbId = computed(() => {
       @apply border-blue-400;
     }
 
+    &:focus-within,
+    &[is-val='true'] {
+      & > input {
+        @apply opacity-100;
+      }
+
+      & + span {
+        top: -1.5rem;
+        left: 0;
+        color: rgba(0, 0, 0);
+        @apply text-sm;
+      }
+    }
+
     &[disabled] {
       @apply bg-gray-50;
       @apply text-gray-500;
     }
+
     &-input {
       @apply flex;
       @apply flex-grow;
       @apply border-none;
+      @apply opacity-0;
 
       &:enabled:focus {
         @apply outline-none;
@@ -105,6 +127,14 @@ const vbId = computed(() => {
         @apply text-gray-500;
       }
     }
+  }
+
+  &__label {
+    @apply absolute;
+    top: 0.5rem;
+    left: 0.75rem;
+    color: rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-out;
   }
 
   &__example {
