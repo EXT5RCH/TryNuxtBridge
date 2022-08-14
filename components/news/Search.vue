@@ -61,48 +61,40 @@ const update = (value: Partial<NewsSearchType>) =>
 
 <template>
   <div class="news-search">
-    <v-accordion label="記事検索" class="news-search__content">
-      <template>
-        <div class="news-search__content-input">
-          <v-text-field
-            id="keyword"
-            v-model="vmKeyword"
-            label="文章内検索（部分一致）"
-            type="search"
-            class="news-search__content-input-keyword"
-          />
-          <v-text-field
-            id="poster"
-            v-model="vmPoster"
-            label="投稿者（部分一致）"
-            type="search"
-            class="news-search__content-input-poster"
-          />
-        </div>
-        <div class="news-search__content-period">
-          <v-text-field
-            id="search-start-at"
-            v-model="vmSearchStartAt"
-            label="検索開始日"
-            type="date"
-            class="news-search__content-period-start-at"
-          />
-          <v-text-field
-            id="search-end-at"
-            v-model="vmSearchEndAt"
-            label="検索終了日"
-            type="date"
-            class="news-search__content-period-end-at"
-          />
-        </div>
-        <v-button
-          id="btn-search"
-          text="検索"
-          class="news-search__content-button"
-          @click="handleClick"
-        />
-      </template>
-    </v-accordion>
+    <v-text-field
+      id="keyword"
+      v-model="vmKeyword"
+      label="文章内検索（部分一致）"
+      type="search"
+      class="news-search__content-input-keyword"
+    />
+    <v-text-field
+      id="poster"
+      v-model="vmPoster"
+      label="投稿者（部分一致）"
+      type="search"
+      class="news-search__content-input-poster"
+    />
+    <v-text-field
+      id="search-start-at"
+      v-model="vmSearchStartAt"
+      label="検索開始日"
+      type="date"
+      class="news-search__content-period-start-at"
+    />
+    <v-text-field
+      id="search-end-at"
+      v-model="vmSearchEndAt"
+      label="検索終了日"
+      type="date"
+      class="news-search__content-period-end-at"
+    />
+    <v-button
+      id="btn-search"
+      text="検索"
+      class="news-search__content-button"
+      @click="handleClick"
+    />
   </div>
 </template>
 
@@ -110,6 +102,8 @@ const update = (value: Partial<NewsSearchType>) =>
 .news-search {
   @apply bg-gray-50;
   @apply shadow;
+  @apply h-full;
+  @apply p-4;
 
   &__content {
     @apply flex flex-col;

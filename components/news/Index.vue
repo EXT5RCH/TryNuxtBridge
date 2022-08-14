@@ -28,19 +28,35 @@ onBeforeMount(async () => {
 
 <template>
   <div class="news">
-    <news-search v-model="searchState" @click="handleClickSearch" />
-    <news-count :count="listState.count" />
-    <v-data-table :columns="columns" :rows="listState.newsList" />
+    <div class="news__side-menu">
+      <news-search v-model="searchState" @click="handleClickSearch" />
+    </div>
+    <div class="news__main">
+      <news-count :count="listState.count" />
+      <v-data-table :columns="columns" :rows="listState.newsList" />
+    </div>
   </div>
 </template>
 
 <style lang="postcss" scoped>
 .news {
   @apply h-full w-full;
-  @apply flex flex-col;
+  @apply flex;
   @apply bg-gradient-to-r;
   @apply from-blue-100 to-purple-100;
-  @apply p-5;
-  @apply gap-5;
+
+  &__side-menu {
+    @apply flex flex-col;
+    @apply w-64;
+  }
+
+  &__main {
+    width: calc(100% - 16rem);
+    @apply p-5;
+
+    ::v-deep .v-data-table__header {
+      width: calc(100% - 18.5rem);
+    }
+  }
 }
 </style>

@@ -72,7 +72,6 @@ const totalColSpan = computed(() => {
     @apply bg-gradient-to-r;
     @apply from-blue-500 to-purple-500;
     @apply text-gray-100;
-    width: calc(100% - 2.5rem);
     @apply px-5 py-2;
     @apply border;
 
