@@ -23,3 +23,8 @@ rules:
   '@typescript-eslint/comma-dangle':
     - 'error'
     - 'only-multiline'
+  'vue/html-self-closing':
+    - 'error'
+      'html':
+        'void': 'always'
+
