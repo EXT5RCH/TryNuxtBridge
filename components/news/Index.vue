@@ -54,7 +54,7 @@ onBeforeMount(async () => {
     width: calc(100% - 16rem);
     @apply p-5;
 
-    ::v-deep .v-data-table__header {
+    :deep(.v-data-table__header) {
       width: calc(100% - 18.5rem);
     }
   }
