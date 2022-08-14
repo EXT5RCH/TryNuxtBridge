@@ -122,6 +122,10 @@ const vbId = computed(() => {
         }
       }
 
+      &:autofill {
+        transition: background-color 5000s ease-in-out 0s !important;
+      }
+
       &:disabled {
         @apply bg-gray-50;
         @apply text-gray-500;
