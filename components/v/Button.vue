@@ -51,6 +51,12 @@ const vbId = computed(() => {
   &:enabled[mode='primary'] {
     @apply bg-gray-700;
     @apply text-gray-100;
+
+    &:focus {
+      @apply outline-none;
+      @apply border-2;
+      @apply border-blue-400;
+    }
   }
 
   &:enabled[mode='secondary'] {
