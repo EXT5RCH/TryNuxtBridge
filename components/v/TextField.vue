@@ -15,7 +15,6 @@ interface Props {
     | 'url'
     | 'search'
   disabled?: boolean
-  example?: string
 }
 const props = withDefaults(defineProps<Props>(), {
   value: '',
@@ -60,12 +59,6 @@ const vbId = computed(() => {
       />
     </div>
     <span class="v-text-field__label" v-text="label" />
-    <div v-if="!!example" class="v-text-field__example">
-      <div class="v-text-field__example-triangle" />
-      <div class="v-text-field__example-text">
-        <span v-text="`例）${props.example}`" />
-      </div>
-    </div>
   </label>
 </template>
 
@@ -139,28 +132,6 @@ const vbId = computed(() => {
     left: 0.75rem;
     color: rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease-out;
-  }
-
-  &__example {
-    @apply hidden;
-
-    &-triangle {
-      @apply w-0 h-0;
-      @apply border-gray-700;
-      margin-left: 8px;
-      border-right: 4px solid transparent;
-      border-bottom: 8px solid;
-      border-left: 4px solid transparent;
-    }
-
-    &-text {
-      @apply bg-gray-700;
-      @apply text-gray-100;
-      @apply p-1;
-      @apply text-xs;
-      @apply rounded;
-      @apply truncate;
-    }
   }
 }
 </style>
