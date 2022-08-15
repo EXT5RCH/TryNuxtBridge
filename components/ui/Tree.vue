@@ -46,7 +46,7 @@ const handleChangeTree = (items: TreeItemType[], id: string) => {
           v-text="item.label"
         />
       </div>
-      <v-tree
+      <ui-tree
         v-if="item.open && item.type === 'array'"
         :items="item.items"
         :open="item.open"

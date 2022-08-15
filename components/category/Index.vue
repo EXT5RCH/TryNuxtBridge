@@ -12,7 +12,7 @@ onBeforeMount(async () => {
 
 <template>
   <div class="category">
-    <v-card v-for="i in categoriesState" :key="i.id" v-bind="i" />
+    <ui-card v-for="i in categoriesState" :key="i.id" v-bind="i" />
   </div>
 </template>
 

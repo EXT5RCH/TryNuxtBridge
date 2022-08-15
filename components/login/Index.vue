@@ -6,20 +6,20 @@ const { loginState, handleLogin } = useSession()
   <div class="login">
     <div class="login__title">ログイン</div>
     <form class="login__content" @submit.prevent="handleLogin">
-      <v-text-field
+      <ui-text-field
         id="username"
         v-model="loginState.name"
         class="login__content-username"
         label="ユーザー名"
       />
-      <v-password
+      <ui-password
         id="password"
         v-model="loginState.password"
         class="login__content-password"
         label="パスワード"
         type="password"
       />
-      <v-button id="btn-login" class="login__content-button" text="ログイン" />
+      <ui-button id="btn-login" class="login__content-button" text="ログイン" />
     </form>
   </div>
 </template>

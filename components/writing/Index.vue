@@ -13,11 +13,11 @@ const handleChangeTree = (items: any) => {
       <div class="writing__menu-list">
         <div class="title">記事一覧</div>
         <div class="content">
-          <v-tree :items="categoriesNewsState" @change="handleChangeTree" />
+          <ui-tree :items="categoriesNewsState" @change="handleChangeTree" />
         </div>
       </div>
       <div class="writing__menu-new">
-        <v-button id="new" class="writing__menu-new-button" text="新規作成" />
+        <ui-button id="new" class="writing__menu-new-button" text="新規作成" />
       </div>
     </div>
     <div class="writing__content">
@@ -25,12 +25,12 @@ const handleChangeTree = (items: any) => {
         <div class="writing__content-editor-header">
           <div class="title">記事作成</div>
           <div class="buttons">
-            <v-button text="下書き" mode="secondary" />
-            <v-button text="公開" />
+            <ui-button text="下書き" mode="secondary" />
+            <ui-button text="公開" />
           </div>
         </div>
         <div class="writing__content-editor-body">
-          <v-text-field label="タイトル" />
+          <ui-text-field label="タイトル" />
           <div>
             <div>本文</div>
             <div>リッチエディタを配置</div>

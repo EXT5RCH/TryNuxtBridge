@@ -33,7 +33,7 @@ onBeforeMount(async () => {
     </div>
     <div class="news__main">
       <news-count :count="listState.count" />
-      <v-data-table :columns="columns" :rows="listState.newsList" />
+      <ui-data-table :columns="columns" :rows="listState.newsList" />
     </div>
   </div>
 </template>

@@ -27,12 +27,12 @@ const menuItems = [
         </nuxt-link>
       </div>
       <div class="header__right">
-        <v-drop-down-list class="drop-down-list" :items="menuItems">
+        <ui-drop-down-list class="drop-down-list" :items="menuItems">
           <template>
-            <v-profile-icon />
+            <ui-profile-icon />
             <span class="material-icons">arrow_drop_down</span>
           </template>
-        </v-drop-down-list>
+        </ui-drop-down-list>
       </div>
     </div>
     <div class="body">
