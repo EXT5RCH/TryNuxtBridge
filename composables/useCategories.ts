@@ -4,7 +4,7 @@ export function useCategories() {
   const categoriesState = ref<CategoryType[]>([])
 
   const fetchCategories = async () => {
-    const res = await fetch('/categories', {
+    const res = await fetch('/api/v1/categories', {
       method: 'GET',
       headers: {
         'content-type': 'application/json',

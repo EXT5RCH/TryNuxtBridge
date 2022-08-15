@@ -4,7 +4,7 @@ export function useCategoriesNews() {
   const categoriesNewsState = ref<TreeItemType[]>([])
 
   const fetchCategoriesNews = async () => {
-    const res = await fetch('/categories_news', {
+    const res = await fetch('/api/v1/categories_news', {
       method: 'GET',
       headers: {
         'content-type': 'application/json',

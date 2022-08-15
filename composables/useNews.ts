@@ -21,7 +21,7 @@ export function useNews() {
   }
 
   const fetchNewsList = async () => {
-    const res = await fetch('/news', {
+    const res = await fetch('/api/v1/news', {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
@@ -31,7 +31,7 @@ export function useNews() {
   }
 
   const fetchNewsCount = async () => {
-    const res = await fetch('/count/news', {
+    const res = await fetch('/api/v1/count/news', {
       method: 'GET',
       headers: {
         'content-type': 'application/json',

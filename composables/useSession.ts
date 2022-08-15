@@ -5,7 +5,7 @@ export function useSession() {
     password: '',
   })
   const handleLogin = async () => {
-    const res = await fetch('/login', {
+    const res = await fetch('/api/v1/login', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -20,7 +20,7 @@ export function useSession() {
     }
   }
   const handleLogout = async () => {
-    await fetch('/logout', {
+    await fetch('/api/v1/logout', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -29,7 +29,7 @@ export function useSession() {
     router.push('/login')
   }
   const checkSession = async () => {
-    const res = await fetch('/session', {
+    const res = await fetch('/api/v1/session', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
