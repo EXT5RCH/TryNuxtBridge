@@ -52,7 +52,8 @@ const vbId = computed(() => {
     @apply bg-gray-700;
     @apply text-gray-100;
 
-    &:focus {
+    &:focus,
+    &:hover {
       @apply outline-none;
       @apply border-2;
       @apply border-blue-400;
