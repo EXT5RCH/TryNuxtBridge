@@ -25,6 +25,5 @@ rules:
     - 'only-multiline'
   'vue/html-self-closing':
     - 'error'
-      'html':
+    - 'html':
         'void': 'always'
-
