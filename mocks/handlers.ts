@@ -9,4 +9,7 @@ export const handlers = [
   rest.get('/api/v1/categories_news', CategoriesNews.index),
   rest.get('/api/v1/news', News.index),
   rest.get('/api/v1/count/news', Count.news),
+  rest.post('/api/v1/console/login', Session.login),
+  rest.post('/api/v1/console/logout', Session.logout),
+  rest.post('/api/v1/console/session', Session.session),
 ]
