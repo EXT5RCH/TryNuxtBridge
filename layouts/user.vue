@@ -2,6 +2,7 @@
 const { handleLogout } = useSession()
 const menuItems = [
   {
+    id: 'logout',
     label: 'ログアウト',
     func: () => handleLogout(),
     type: 'func',
@@ -27,7 +28,11 @@ const menuItems = [
         </nuxt-link>
       </div>
       <div class="header__right">
-        <ui-drop-down-list class="drop-down-list" :items="menuItems">
+        <ui-drop-down-list
+          id="user-header-profile"
+          :items="menuItems"
+          class="drop-down-list"
+        >
           <template>
             <ui-profile-icon />
             <span class="material-icons">arrow_drop_down</span>
