@@ -10,7 +10,8 @@
     "prettier": "prettier -w -u .",
     "prepare": "husky install",
     "commitmsg": "commitlint -e $GIT_PARAMS",
-    "cypress:open": "cypress open"
+    "cy:run:chrome": "cypress run --browser chrome",
+    "cy:open:chrome": "cypress open --browser chrome"
   },
   "dependencies": {
     "core-js": "^3.19.3",
