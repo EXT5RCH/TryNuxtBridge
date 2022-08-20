@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { v4 as uuidv4 } from 'uuid'
+
 interface MenuItem {
+  id?: string
   label: string
   type: 'nLink' | 'link' | 'func'
   linkUrl?: string
@@ -7,10 +10,12 @@ interface MenuItem {
 }
 
 interface Props {
+  id?: string
   items: MenuItem[]
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
+  id: '',
   items: () => [],
 })
 
@@ -24,6 +29,9 @@ const handleMouseLeave = (e: MouseEvent) => {
   div.removeAttribute('aria-expanded')
   div.setAttribute('aria-expanded', 'false')
 }
+const vbId = computed(() => {
+  return props.id ? props.id : uuidv4()
+})
 </script>
 
 <template>
@@ -33,22 +41,31 @@ const handleMouseLeave = (e: MouseEvent) => {
     @mouseover="handleMouseOver"
     @mouseleave.self="handleMouseLeave"
   >
-    <button class="button" @mouseover="handleMouseOver">
+    <button :id="vbId" class="button" @mouseover="handleMouseOver">
       <slot />
     </button>
     <div class="menu" @mouseover="handleMouseOver">
       <div v-for="item in items" :key="item.label" class="menu__item">
         <a
           v-if="item.type === 'link'"
+          :id="`${vbId}-${item.id}`"
           :href="item.linkUrl"
           rel="noopener noreferrer"
         >
           <span v-text="item.label" />
         </a>
-        <n-link v-if="item.type === 'nLink'" :to="item.linkUrl">
+        <n-link
+          v-if="item.type === 'nLink'"
+          :id="`${vbId}-${item.id}`"
+          :to="item.linkUrl"
+        >
           <span v-text="item.label" />
         </n-link>
-        <button v-if="item.type === 'func'" @click="item.func">
+        <button
+          v-if="item.type === 'func'"
+          :id="`${vbId}-${item.id}`"
+          @click="item.func"
+        >
           <span v-text="item.label" />
         </button>
       </div>
