@@ -16,7 +16,7 @@ withDefaults(defineProps<Props>(), {
   </details>
 </template>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .v-accordion {
   @apply border;
   @apply border-gray-300;

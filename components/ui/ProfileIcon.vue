@@ -14,7 +14,7 @@ const vbText = props.text.length > 0 ? props.text.substring(0, 1) : 'あ'
   </div>
 </template>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .profile-icon {
   @apply flex;
   @apply justify-center items-center;

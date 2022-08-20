@@ -56,7 +56,7 @@ const handleMouseLeave = (e: MouseEvent) => {
   </div>
 </template>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .drop-down-list {
   @apply flex flex-col;
   @apply items-center;

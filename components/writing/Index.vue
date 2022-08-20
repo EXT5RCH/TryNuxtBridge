@@ -45,7 +45,7 @@ const handleChangeTree = (items: any) => {
   </div>
 </template>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .writing {
   @apply flex;
   @apply h-full w-full;

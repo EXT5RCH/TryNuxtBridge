@@ -57,7 +57,7 @@ const handleChangeTree = (items: TreeItemType[], id: string) => {
   </ul>
 </template>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .v-tree {
   @apply flex flex-col;
 
