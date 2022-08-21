@@ -74,7 +74,7 @@ const handleViewPassword = () => {
 
   &__content {
     @apply flex;
-    @apply flex-grow;
+    @apply grow;
     @apply gap-2;
     @apply px-3 py-2;
     @apply border-b-2;
@@ -103,7 +103,7 @@ const handleViewPassword = () => {
 
     &-input {
       @apply flex;
-      @apply flex-grow;
+      @apply grow;
       @apply border-none;
 
       &:enabled:focus {

@@ -70,7 +70,7 @@ const vbId = computed(() => {
 
   &__content {
     @apply flex;
-    @apply flex-grow;
+    @apply grow;
     @apply gap-2;
     @apply px-3 py-2;
     @apply border-b-2;
@@ -103,7 +103,7 @@ const vbId = computed(() => {
 
     &-input {
       @apply flex;
-      @apply flex-grow;
+      @apply grow;
       @apply border-none;
       @apply opacity-0;
 

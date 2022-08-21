@@ -61,7 +61,7 @@ const handleChangeTree = (items: any) => {
 
     &-list {
       @apply flex flex-col;
-      @apply flex-grow;
+      @apply grow;
 
       .title {
         @apply w-full;
@@ -75,7 +75,7 @@ const handleChangeTree = (items: any) => {
       }
 
       .content {
-        @apply flex-grow;
+        @apply grow;
         @apply bg-white;
         @apply shadow;
         @apply p-1;
@@ -87,7 +87,7 @@ const handleChangeTree = (items: any) => {
       @apply flex;
 
       &-button {
-        @apply flex-grow;
+        @apply grow;
         @apply flex;
         @apply justify-center;
         @apply bg-gray-50;
@@ -98,10 +98,10 @@ const handleChangeTree = (items: any) => {
 
   &__content {
     @apply flex;
-    @apply flex-grow;
+    @apply grow;
 
     &-editor {
-      @apply flex-grow;
+      @apply grow;
       @apply bg-gray-50;
       @apply border;
       @apply border-gray-300;
@@ -111,7 +111,7 @@ const handleChangeTree = (items: any) => {
 
       &-header {
         @apply h-16;
-        @apply flex-grow-0;
+        @apply grow-0;
         @apply flex;
         @apply justify-between items-center;
         @apply border-b-2;
@@ -130,7 +130,7 @@ const handleChangeTree = (items: any) => {
 
       &-body {
         @apply flex flex-col;
-        @apply flex-grow;
+        @apply grow;
         @apply p-4;
         @apply gap-4;
       }
