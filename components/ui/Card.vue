@@ -27,7 +27,7 @@ withDefaults(defineProps<Props>(), {
   @apply border;
   @apply border-gray-200;
   @apply rounded;
-  @apply flex-shrink;
+  @apply shrink;
   @apply bg-white;
   @apply h-64 w-96;
 
