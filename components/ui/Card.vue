@@ -29,7 +29,8 @@ withDefaults(defineProps<Props>(), {
   @apply rounded;
   @apply shrink;
   @apply bg-white;
-  @apply h-64 w-96;
+  @apply h-60 w-96;
+  @apply text-sm;
 
   &:hover {
     @apply bg-gradient-to-r;
@@ -49,11 +50,11 @@ withDefaults(defineProps<Props>(), {
   }
 
   &__title {
-    @apply p-2;
+    @apply p-1;
     @apply flex;
     @apply justify-center items-center;
     @apply truncate;
-    @apply h-12;
+    @apply h-7;
   }
 }
 </style>

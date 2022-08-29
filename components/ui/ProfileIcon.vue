@@ -18,7 +18,7 @@ const vbText = props.text.length > 0 ? props.text.substring(0, 1) : 'あ'
 .profile-icon {
   @apply flex;
   @apply justify-center items-center;
-  @apply h-9 w-9;
+  @apply h-7 w-7;
   @apply rounded-full;
   @apply bg-white;
   @apply border;

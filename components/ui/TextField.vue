@@ -72,7 +72,7 @@ const vbId = computed(() => {
     @apply flex;
     @apply grow;
     @apply gap-2;
-    @apply px-3 py-2;
+    @apply px-2 py-1;
     @apply border-b-2;
     @apply border-gray-300;
     @apply bg-white;
@@ -89,10 +89,10 @@ const vbId = computed(() => {
       }
 
       & + span {
-        top: -1.5rem;
+        top: -1.25rem;
         left: 0;
         color: rgba(0, 0, 0);
-        @apply text-sm;
+        @apply text-xs;
       }
     }
 
@@ -106,13 +106,10 @@ const vbId = computed(() => {
       @apply grow;
       @apply border-none;
       @apply opacity-0;
+      @apply text-sm;
 
       &:enabled:focus {
         @apply outline-none;
-
-        & + .v-text-field__example {
-          @apply block;
-        }
       }
 
       &:autofill {
@@ -128,8 +125,9 @@ const vbId = computed(() => {
 
   &__label {
     @apply absolute;
-    top: 0.5rem;
-    left: 0.75rem;
+    @apply text-sm;
+    top: 0.25rem;
+    left: 0.5rem;
     color: rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease-out;
   }

@@ -64,6 +64,7 @@ const totalColSpan = computed(() => {
   @apply overflow-auto;
   @apply gap-5;
   @apply w-full;
+  @apply text-sm;
 
   &__header {
     @apply grid;
@@ -72,7 +73,7 @@ const totalColSpan = computed(() => {
     @apply bg-gradient-to-r;
     @apply from-blue-500 to-purple-500;
     @apply text-gray-100;
-    @apply px-5 py-2;
+    @apply px-5 py-1;
     @apply border;
 
     .column {
@@ -85,12 +86,12 @@ const totalColSpan = computed(() => {
   }
 
   &__body {
-    @apply pt-10;
+    @apply pt-8;
 
     .row {
       @apply grid;
       @apply gap-2;
-      @apply px-5 py-2;
+      @apply px-5 py-1;
       @apply border;
       @apply bg-gray-50;
 

@@ -52,10 +52,11 @@ const menuItems = [
   @apply h-full w-full;
 
   .header {
-    @apply h-12;
+    @apply h-9;
     @apply bg-white;
     @apply flex;
     @apply justify-between items-center;
+    @apply text-sm;
 
     &__left {
       @apply flex;
@@ -90,21 +91,21 @@ const menuItems = [
       @apply h-full;
 
       .drop-down-list {
-        @apply w-24;
+        @apply w-16;
       }
     }
   }
 
   .body {
     @apply flex;
-    height: calc(100% - 5.5rem);
+    height: calc(100% - 4.5rem);
   }
 
   .footer {
     @apply bottom-0;
     @apply flex;
     @apply justify-center items-center;
-    @apply h-10;
+    @apply h-9;
     @apply w-full;
     @apply bg-gray-900;
     @apply text-gray-200;

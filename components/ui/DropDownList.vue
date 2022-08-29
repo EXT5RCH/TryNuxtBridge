@@ -77,8 +77,6 @@ const vbId = computed(() => {
 .drop-down-list {
   @apply flex flex-col;
   @apply items-center;
-  @apply p-0.5;
-  @apply h-12;
 
   .button {
     @apply p-1;
@@ -119,7 +117,7 @@ const vbId = computed(() => {
 
           span {
             @apply truncate;
-            @apply text-sm;
+            @apply text-xs;
           }
         }
       }

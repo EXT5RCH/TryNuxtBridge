@@ -45,8 +45,9 @@ const vbId = computed(() => {
 
 <style lang="postcss" scoped>
 .v-button {
-  @apply border rounded;
-  @apply p-2;
+  @apply border rounded-full;
+  @apply text-sm;
+  @apply p-1;
 
   &:enabled[mode='primary'] {
     @apply bg-gray-700;

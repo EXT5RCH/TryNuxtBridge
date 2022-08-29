@@ -60,6 +60,11 @@ const handleChangeTree = (items: TreeItemType[], id: string) => {
 <style lang="postcss" scoped>
 .v-tree {
   @apply flex flex-col;
+  @apply text-sm;
+
+  .material-icons {
+    @apply text-sm;
+  }
 
   &__item {
     @apply items-center;

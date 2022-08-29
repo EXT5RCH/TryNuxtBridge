@@ -76,7 +76,7 @@ const handleViewPassword = () => {
     @apply flex;
     @apply grow;
     @apply gap-2;
-    @apply px-3 py-2;
+    @apply px-2 py-1;
     @apply border-b-2;
     @apply border-gray-300;
     @apply bg-white;
@@ -89,10 +89,10 @@ const handleViewPassword = () => {
     &:focus-within,
     &[is-val='true'] {
       & + span {
-        top: -1.5rem;
+        top: -1.25rem;
         left: 0;
         color: rgba(0, 0, 0);
-        @apply text-sm;
+        @apply text-xs;
       }
     }
 
@@ -105,6 +105,7 @@ const handleViewPassword = () => {
       @apply flex;
       @apply grow;
       @apply border-none;
+      @apply text-sm;
 
       &:enabled:focus {
         @apply outline-none;
@@ -119,6 +120,10 @@ const handleViewPassword = () => {
     &-view-icon {
       @apply flex items-center;
 
+      .material-icons {
+        @apply text-sm;
+      }
+
       &:disabled {
         @apply cursor-default;
       }
@@ -127,10 +132,11 @@ const handleViewPassword = () => {
 
   &__label {
     @apply absolute;
-    top: 0.5rem;
-    left: 0.75rem;
+    top: 0.25rem;
+    left: 0.5rem;
     color: rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease-out;
+    @apply text-sm;
   }
 }
 </style>

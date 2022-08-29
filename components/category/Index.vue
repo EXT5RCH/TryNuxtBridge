@@ -25,6 +25,6 @@ onBeforeMount(async () => {
   @apply from-blue-100 to-purple-100;
   @apply p-5;
   @apply gap-5;
-  @apply overflow-scroll;
+  @apply overflow-y-scroll;
 }
 </style>

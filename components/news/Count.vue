@@ -26,5 +26,6 @@ const countText = computed(
 .news-count {
   @apply flex;
   @apply justify-center items-center;
+  @apply text-sm;
 }
 </style>

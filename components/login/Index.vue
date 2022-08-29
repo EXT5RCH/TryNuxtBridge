@@ -4,7 +4,6 @@ const { loginState, handleLogin } = useSession()
 
 <template>
   <div class="login">
-    <div class="login__title">ログイン</div>
     <form class="login__content" @submit.prevent="handleLogin">
       <ui-text-field
         id="username"
@@ -32,10 +31,6 @@ const { loginState, handleLogin } = useSession()
   @apply justify-center items-center;
   @apply bg-gradient-to-r;
   @apply from-blue-100 to-purple-100;
-
-  &__title {
-    @apply text-4xl;
-  }
 
   &__content {
     @apply border;

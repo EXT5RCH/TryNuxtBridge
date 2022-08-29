@@ -35,7 +35,7 @@ const handleChangeTree = (items: any) => {
             <div>本文</div>
             <div>リッチエディタを配置</div>
           </div>
-          <div class="section">
+          <div>
             <div>画像</div>
             <div>画像アップロードのコンポーネントを配置</div>
           </div>
@@ -56,7 +56,7 @@ const handleChangeTree = (items: any) => {
 
   &__menu {
     @apply flex flex-col;
-    @apply h-full w-96;
+    @apply h-full w-72;
     @apply gap-4;
 
     &-list {
@@ -67,7 +67,7 @@ const handleChangeTree = (items: any) => {
         @apply w-full;
         @apply flex;
         @apply justify-center;
-        @apply text-lg;
+        @apply text-base;
         @apply bg-gradient-to-r;
         @apply from-blue-500 to-purple-500;
         @apply text-gray-100;
@@ -110,7 +110,7 @@ const handleChangeTree = (items: any) => {
       @apply shadow;
 
       &-header {
-        @apply h-16;
+        @apply h-12;
         @apply grow-0;
         @apply flex;
         @apply justify-between items-center;
@@ -119,11 +119,12 @@ const handleChangeTree = (items: any) => {
         @apply px-4 p-2;
 
         .title {
-          @apply text-2xl;
+          @apply text-base;
         }
 
         .buttons {
           @apply flex;
+          @apply text-base;
           @apply gap-4;
         }
       }
@@ -131,7 +132,7 @@ const handleChangeTree = (items: any) => {
       &-body {
         @apply flex flex-col;
         @apply grow;
-        @apply p-4;
+        @apply p-1;
         @apply gap-4;
       }
     }

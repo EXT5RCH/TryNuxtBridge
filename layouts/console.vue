@@ -21,11 +21,12 @@
   @apply h-full w-full;
 
   .header {
-    @apply h-12;
+    @apply h-9;
     @apply bg-gray-900;
     @apply text-gray-50;
     @apply flex;
     @apply justify-between items-center;
+    @apply text-sm;
 
     &__left {
       @apply flex;
@@ -63,7 +64,7 @@
 
   .body {
     @apply flex;
-    height: calc(100% - 3rem);
+    height: calc(100% - 2.25rem);
   }
 }
 </style>
