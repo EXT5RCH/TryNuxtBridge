@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['./src/**/*.{html,js}', './nuxt.config.js'],
+  content: ['./pages/**/*.vue', './components/**/*.vue', './nuxt.config.js'],
   theme: {
     extend: {},
   },
