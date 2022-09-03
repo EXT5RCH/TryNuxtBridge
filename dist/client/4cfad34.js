@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[24],{562:function(n,e,t){"use strict";t.r(e);var l={layout:"user"},o=t(33),component=Object(o.a)(l,(function(){return(0,this._self._c)("news")}),[],!1,null,null,null);e.default=component.exports;installComponents(component,{News:t(557).default})}}]);

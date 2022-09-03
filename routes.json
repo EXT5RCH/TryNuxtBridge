@@ -1,0 +1,44 @@
+[
+  {
+    "name": "category",
+    "path": "/category",
+    "component": "/home/runner/work/TryNuxtBridge/TryNuxtBridge/pages/category.vue",
+    "chunkName": "pages/category",
+    "_name": "_0a78ea72"
+  },
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "/home/runner/work/TryNuxtBridge/TryNuxtBridge/pages/login.vue",
+    "chunkName": "pages/login",
+    "_name": "_716290f0"
+  },
+  {
+    "name": "news",
+    "path": "/news",
+    "component": "/home/runner/work/TryNuxtBridge/TryNuxtBridge/pages/news.vue",
+    "chunkName": "pages/news",
+    "_name": "_e8d3b2c8"
+  },
+  {
+    "name": "console-login",
+    "path": "/console/login",
+    "component": "/home/runner/work/TryNuxtBridge/TryNuxtBridge/pages/console/login.vue",
+    "chunkName": "pages/console/login",
+    "_name": "_1664db38"
+  },
+  {
+    "name": "console-writing",
+    "path": "/console/writing",
+    "component": "/home/runner/work/TryNuxtBridge/TryNuxtBridge/pages/console/writing.vue",
+    "chunkName": "pages/console/writing",
+    "_name": "_5644616b"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/home/runner/work/TryNuxtBridge/TryNuxtBridge/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_b08a244e"
+  }
+]

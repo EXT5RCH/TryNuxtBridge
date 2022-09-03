@@ -1,0 +1,2 @@
+export const useHead = () => console.warn('[bridge] [meta] To enable experimental `useHead` support, set `bridge.meta` to `true` in your `nuxt.config`. Please see https://v3.nuxtjs.org for more information.')
+export const useMeta = () => console.warn('[bridge] [meta] To enable experimental `useHead` support, set `bridge.meta` to `true` in your `nuxt.config`. Please see https://v3.nuxtjs.org for more information.')
