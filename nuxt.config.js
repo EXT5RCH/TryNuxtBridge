@@ -13,8 +13,35 @@ export default defineNuxtConfig({
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'NuxtBridgeを試してみる',
+      },
       { name: 'format-detection', content: 'telephone=no' },
+      { hid: 'og:title', property: 'og:title', content: 'try-nuxt-bridge' },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: 'NuxtBridgeを試してみる',
+      },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: 'https://ext5rch.github.io/TryNuxtBridge/',
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: 'https://source.unsplash.com/OqtafYT5kTw',
+      },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      {
+        hid: 'og:site_name',
+        property: 'og:site_name',
+        content: 'TryNuxtBridge',
+      },
+      { name: 'twitter:card', content: 'summary' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
