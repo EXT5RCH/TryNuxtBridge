@@ -41,6 +41,7 @@ const { loginState, handleLogin } = useSession()
     @apply bg-gray-50;
     @apply w-96;
     @apply h-72;
+    @apply shadow-md;
 
     &-username,
     &-password {
@@ -48,7 +49,7 @@ const { loginState, handleLogin } = useSession()
     }
 
     &-button {
-      @apply mt-4;
+      @apply mt-6;
       @apply w-3/4;
     }
   }

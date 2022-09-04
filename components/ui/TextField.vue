@@ -74,7 +74,7 @@ const vbId = computed(() => {
     @apply gap-2;
     @apply px-2 py-1;
     @apply border-b-2;
-    @apply border-gray-300;
+    @apply border-gray-700;
     @apply bg-white;
 
     &:focus-within {
