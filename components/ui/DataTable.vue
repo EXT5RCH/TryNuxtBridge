@@ -74,7 +74,6 @@ const totalColSpan = computed(() => {
     @apply from-blue-500 to-purple-500;
     @apply text-gray-100;
     @apply px-5 py-1;
-    @apply border;
 
     .column {
       @apply flex;
@@ -86,14 +85,19 @@ const totalColSpan = computed(() => {
   }
 
   &__body {
-    @apply pt-8;
+    @apply pt-7;
 
     .row {
       @apply grid;
       @apply gap-2;
       @apply px-5 py-1;
-      @apply border;
       @apply bg-gray-50;
+      @apply border-b;
+      @apply border-gray-200;
+
+      &:last-child {
+        @apply border-none;
+      }
 
       &-item {
         @apply flex;
