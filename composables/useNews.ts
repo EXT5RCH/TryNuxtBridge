@@ -15,37 +15,33 @@ export function useNews() {
     newsList: [],
   })
 
-  const fetchNews = async () => {
-    await fetchNewsList()
-    await fetchNewsCount()
+  interface NewsParams {
+    limit?: number
+    page?: number
   }
 
-  const fetchNewsList = async () => {
-    const res = await fetch('/api/v1/news', {
+  const fetchNews = async (params: NewsParams) => {
+    const query = new URLSearchParams()
+    if (params.limit) {
+      query.append('limit', params.limit.toString())
+    }
+    if (params.page) {
+      query.append('page', params.page.toString())
+    }
+    console.log(`/api/v1/news?${query.toString()}`)
+    const url = params ? `/api/v1/news?${query.toString()}` : '/api/v1/news'
+    const res = await fetch(url, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
       },
     })
-    listState.value.newsList = await res.json()
+    listState.value = await res.json()
   }
 
-  const fetchNewsCount = async () => {
-    const res = await fetch('/api/v1/count/news', {
-      method: 'GET',
-      headers: {
-        'content-type': 'application/json',
-      },
-    })
-    listState.value.count = await res.json()
-  }
-
-  const handleClickSearch = async () => {
-    await fetchNews()
-  }
   return {
     searchState,
     listState,
-    handleClickSearch,
+    fetchNews,
   }
 }

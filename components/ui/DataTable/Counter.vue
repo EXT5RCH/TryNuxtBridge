@@ -1,29 +1,24 @@
 <script setup lang="ts">
-import { NewsCountType } from '~/types/news'
-
 interface Props {
-  count: NewsCountType
+  count: number
+  totalCount: number
 }
 const props = withDefaults(defineProps<Props>(), {
-  count: () => ({
-    count: 0,
-    total: 0,
-  }),
+  count: 0,
+  totalCount: 0,
 })
 
-const countText = computed(
-  () => `検索結果 ${props.count.count}件 / ${props.count.total}件`
-)
+const countText = computed(() => `${props.count} / ${props.totalCount}`)
 </script>
 
 <template>
-  <div class="news-count">
+  <div class="counter">
     <span v-text="countText" />
   </div>
 </template>
 
 <style lang="postcss" scoped>
-.news-count {
+.count {
   @apply flex;
   @apply justify-center items-center;
   @apply text-sm;
