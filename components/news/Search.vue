@@ -4,7 +4,7 @@ import { NewsSearchType } from '~/types/news'
 interface Props {
   value?: NewsSearchType
 }
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   value: () => ({
     keyword: '',
     poster: '',
@@ -15,126 +15,51 @@ const props = withDefaults(defineProps<Props>(), {
 
 interface Emits {
   (e: 'click'): void
-  (e: 'input', value: NewsSearchType): void
 }
 const emit = defineEmits<Emits>()
 
 const handleClick = () => {
   emit('click')
 }
-
-const vmKeyword = computed({
-  get: () => {
-    return props.value.keyword
-  },
-  set: (keyword: string) => {
-    update({ keyword })
-  },
-})
-const vmPoster = computed({
-  get: () => {
-    return props.value.poster
-  },
-  set: (poster: string) => {
-    update({ poster })
-  },
-})
-const vmSearchStartAt = computed({
-  get: () => {
-    return props.value.searchStartAt
-  },
-  set: (searchStartAt: string) => {
-    update({ searchStartAt })
-  },
-})
-const vmSearchEndAt = computed({
-  get: () => {
-    return props.value.searchEndAt
-  },
-  set: (searchEndAt: string) => {
-    update({ searchEndAt })
-  },
-})
-const update = (value: Partial<NewsSearchType>) =>
-  emit('input', { ...props.value, ...value })
 </script>
 
 <template>
   <div class="news-search">
-    <ui-text-field
-      id="keyword"
-      v-model="vmKeyword"
-      label="文章内検索（部分一致）"
-      type="search"
-      class="news-search__content-input-keyword"
-    />
-    <ui-text-field
-      id="poster"
-      v-model="vmPoster"
-      label="投稿者（部分一致）"
-      type="search"
-      class="news-search__content-input-poster"
-    />
-    <ui-text-field
-      id="search-start-at"
-      v-model="vmSearchStartAt"
-      label="検索開始日"
-      type="date"
-      class="news-search__content-period-start-at"
-    />
-    <ui-text-field
-      id="search-end-at"
-      v-model="vmSearchEndAt"
-      label="検索終了日"
-      type="date"
-      class="news-search__content-period-end-at"
-    />
-    <ui-button
-      id="btn-search"
-      text="検索"
-      class="news-search__content-button"
-      @click="handleClick"
-    />
+    <div class="current-search-terms" />
+    <button id="btn-search" class="current-search-button" @click="handleClick">
+      検索
+    </button>
   </div>
 </template>
 
 <style lang="postcss" scoped>
 .news-search {
+  @apply flex;
+  @apply items-center;
+  @apply w-full;
+  @apply p-1;
+  @apply rounded;
   @apply bg-gray-50;
-  @apply shadow;
-  @apply h-full;
-  @apply p-4;
+  @apply text-xs;
+  @apply gap-1;
 
-  &__content {
-    @apply flex flex-col;
-    @apply px-5 py-3;
-    @apply gap-2;
+  .current-search {
+    &-terms {
+      @apply flex grow;
+      @apply truncate;
+      @apply w-full;
 
-    &-input {
-      @apply flex;
-      @apply flex-col sm:flex-row;
-      @apply gap-2;
-
-      &-keyword,
-      &-poster {
-        @apply w-full;
-      }
-    }
-
-    &-period {
-      @apply flex;
-      @apply flex-col sm:flex-row;
-      @apply gap-2;
-
-      &-start-at,
-      &-end-at {
-        @apply w-full;
+      span {
+        @apply truncate;
       }
     }
 
     &-button {
-      @apply mt-4;
-      @apply w-full;
+      @apply bg-gray-700;
+      @apply text-gray-100;
+      @apply p-1;
+      @apply rounded;
+      @apply w-20;
     }
   }
 }

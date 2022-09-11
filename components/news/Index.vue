@@ -68,7 +68,7 @@ onBeforeMount(() => {
 <template>
   <div v-if="pending">Loading ...</div>
   <div v-else class="news">
-    <div class="news__side-menu">
+    <div class="news__header">
       <news-search v-model="searchState" @click="onSearch" />
     </div>
     <div class="news__main">
@@ -91,20 +91,26 @@ onBeforeMount(() => {
 <style lang="postcss" scoped>
 .news {
   @apply h-full w-full;
-  @apply flex;
+  @apply flex flex-col;
+  @apply items-center;
   @apply bg-gradient-to-r;
   @apply from-blue-100 to-purple-100;
+  @apply py-2;
+  @apply gap-2;
+  @apply overflow-auto;
 
-  &__side-menu {
+  &__header {
     @apply flex flex-col;
-    @apply w-64;
+    @apply w-full lg:w-[1024px];
+    @apply px-1;
   }
 
   &__main {
-    width: calc(100% - 16rem);
-    @apply p-5;
+    @aplly h-full;
     @apply flex flex-col;
     @apply gap-1;
+    @apply w-full lg:w-[1024px];
+    @apply px-1;
   }
 }
 </style>

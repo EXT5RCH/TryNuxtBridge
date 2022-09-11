@@ -96,7 +96,7 @@ const totalColSpan = computed(() => {
 .v-data-table {
   @apply w-full max-h-full;
   @apply flex flex-col;
-  @apply text-sm;
+  @apply text-xs;
   @apply border;
   @apply rounded;
   @apply shadow-sm;
@@ -129,12 +129,12 @@ const totalColSpan = computed(() => {
 
   .body {
     @apply overflow-y-scroll;
-    @apply max-h-[580px];
+    @apply max-h-[560px];
 
     .row {
       @apply grid;
       @apply gap-2;
-      @apply px-5 py-1;
+      @apply px-5 py-0.5;
       @apply border-b;
       @apply border-gray-200;
       @apply mx-2;
