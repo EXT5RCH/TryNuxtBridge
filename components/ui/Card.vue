@@ -29,7 +29,7 @@ withDefaults(defineProps<Props>(), {
   @apply rounded;
   @apply shrink;
   @apply bg-white;
-  @apply h-60 w-96;
+  @apply h-60 w-[20rem];
   @apply text-sm;
 
   &:hover {

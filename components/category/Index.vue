@@ -12,19 +12,27 @@ onBeforeMount(async () => {
 
 <template>
   <div class="category">
-    <ui-card v-for="i in categoriesState" :key="i.id" v-bind="i" />
+    <div class="category__main">
+      <ui-card v-for="i in categoriesState" :key="i.id" v-bind="i" />
+    </div>
   </div>
 </template>
 
 <style lang="postcss" scoped>
 .category {
   @apply h-full w-full;
-  @apply flex flex-wrap;
-  @apply justify-center items-center;
+  @apply flex;
+  @apply justify-center;
   @apply bg-gradient-to-r;
   @apply from-blue-100 to-purple-100;
-  @apply p-5;
-  @apply gap-5;
   @apply overflow-y-scroll;
+
+  &__main {
+    @apply w-full lg:w-[1024px];
+    @apply flex flex-wrap;
+    @apply justify-center;
+    @apply py-5;
+    @apply gap-5;
+  }
 }
 </style>
